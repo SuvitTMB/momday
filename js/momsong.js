@@ -31,7 +31,7 @@ function DisplaySong(n) {
     NameText = '<div class="YoutubeText">บอกตัวเองให้กลั้นน้ำตาไว้ ไม่ให้ร้อง ไม่ให้น้อยใจ<br>ใกล้ถึงวันแม่ทีไร น้ำตาจะไหลขึ้นมา<br>แม่จากลูกไปตั้งแต่เด็กน้อย มีปมติดตัวคือกำพร้า<br>พยายามเข้มแข็งเรื่อยมา แต่บางเวลาอ่อนล้าเกินไป</div>';
   } else if(n==5) {
     NameSong = '<div class="box-text3">เพลงแม่ : Loso</div>';
-    NameVDO = '<div><iframe width="340" height="191" src="https://www.youtube.com/embed/bimw4o6wNtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    NameVDO = '<div><iframe width="300" height="191" src="https://www.youtube.com/embed/bimw4o6wNtA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
     NameText = '<div class="YoutubeText">ป่านนี้ จะเป็นอย่างไร<br>จากมาไกล แสนนาน<br>คิดถึง คิดถึงบ้าน<br>จากมาตั้งนาน เมื่อไรจะได้กลับ</div>';
   } 
   var str = "";
