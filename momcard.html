@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="index.html">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="momphoto.html">ส่งภาพประกวด</a></li>
+          <li><a href="momcard.html">การ์ดวันแม่</a></li>
+          <li><a href="momsong.html">ฟังเพลงแม่</a></li>
+          <li><a href="moncontent.html">บอกรักแม่</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="row">
+  <div style="margin-top:70px;text-align: center;"><img src="./img/momMenu-02.png" width="340px;"></div>
+  <div id="Page21">
+    <center>
+      <div style="margin-top:20px;"><img src="./img/momMenu-021.png" width="200px;"></div>
+      <div style="width:200px;margin-left:auto; margin-right: auto; margin-top:10px;">
+        <div class="HeaderCard"><u>3 ขั้นตอนกับการสร้างการ์ด</u></div>
+        <ul style="text-align: left;">
+          <li>เลือกรูปแบบการ์ดวันแม่</li>
+          <li>เลือกข้อความ</li>
+          <li>บันทึกรูปภาพ</li>
+        </ul>
+      </div>
+      <div class="btn-t1" style="padding:12px;margin-top:30px;width:300px !important;" onclick="CreateCard()">เริ่มสร้างการ์ดวันแม่</div>
+    </center>
+  </div>
+
+  <div id="Page22" style="text-align: center;width:80%;margin:auto; max-width: 400px;">
+    <div class="HeaderCard"><u>ขั้นตอนที่ 1</u> เลือกรูปแบบการ์ด</div>
+    <div class="row" style="margin-top:20px;">
+      <div class="col-sm-6 box-4h">
+        <div><img src="./img/minicard-1.png" width="140px;"></div>
+        <div class="btn-t2" onclick="SelectCardNumber(1)">เลือก</div>
+      </div>
+      <div class="col-sm-6 box-4h">
+        <div><img src="./img/minicard-2.png" width="140px;"></div>
+        <div class="btn-t2" onclick="SelectCardNumber(2)">เลือก</div>
+      </div>
+      <div class="col-sm-6 box-4h">
+        <div><img src="./img/minicard-3.png" width="140px;"></div>
+        <div class="btn-t2" onclick="SelectCardNumber(3)">เลือก</div>
+      </div>
+      <div class="col-sm-6 box-4h">
+        <div><img src="./img/Card1.png" width="140px;"></div>
+        <div class="btn-t2" onclick="SelectCardNumber(4)">เลือก</div>
+      </div>
+      <div class="col-sm-6 box-4h">
+        <div><img src="./img/Card1.png" width="140px;"></div>
+        <div class="btn-t2" onclick="SelectCardNumber(5)">เลือก</div>
+      </div>
+      <div class="col-sm-6 box-4h">
+        <div><img src="./img/Card1.png" width="140px;"></div>
+        <div class="btn-t2" onclick="SelectCardNumber(6)">เลือก</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="Page23" style="text-align: center;width:80%;margin:auto; max-width: 400px;">
+    <div class="HeaderCard"><u>ขั้นตอนที่ 2</u> เลือกข้อความบนการ์ด</div>
+
+    <div class="box-msgtext">
+      <div class="box-text11">ข้อความที่กำหนดไว้</div>
+      <div class="box-text0" onclick="SelectCardText(1)">
+        <div class="box-text2">แม่คือพระคือนางฟ้าเทวดา<br>ให้กำเนิดเกิดลูกมาเลี้ยงจนใหญ่<br>
+          ดูแลลูกไม่ให้มีอันตราย<br>สักการะจากหัวใจของลูกเอย</div>
+      </div>
+      <div class="box-text0" onclick="SelectCardText(2)">
+        <div class="box-text2">ประนมมือก้มกราบลงบนตัก<br>ด้วยความรักความเคารพต่อแม่ฉัน<br>
+ซึ้งพระคุณอันยิ่งใหญ่มากอนันต์<br>ใจเบิกบานแสนอบอุ่นวันแม่เอย</div>
+      </div>
+      <div class="box-text0" onclick="SelectCardText(3)">
+        <div class="box-text2">รักของแม่ตราตรึงใจประทับใจ<br>มอบชีวิตเลี้ยงลูกรักจนเติบใหญ่<br>ขอสัญญาว่าเมื่อลูกนี้โตไป<br>เป็นผู้ใหญ่เป็นคนดีของสังคม</div>
+      </div>
+      <div class="box-text0" onclick="SelectCardText(4)">
+        <div class="box-text2">มีวันนี้เพราะมีแม่คอยพร่ำสอน<br>ยามจะนอนคอยพัดวีให้สุขสันต์<br>คอยถนอมและปกป้องไม่มีหวั่น<br>ก้มกราบกรานด้วยสำนึกในพระคุณ</div>
+      </div>
+      <div class="box-text0" onclick="SelectCardText(5)">
+        <div class="box-text2">แสนดีใจที่เกิดมาเป็นลูกแม่<br>คอยเทคแคร์ดูแลลูกไม่เคยห่าง<br>แม่ประคบประหงมลูกทุกเส้นทาง<br>มีทุกอย่างเป็นเพราะแม่ดูแลเรา</div>
+      </div>
+      <div class="box-text11">สร้างข้อความใหม่</div>
+      <textarea id="SendMsg" placeholder="พิมพ์ข้อความใหม่ .." class="SendMsg"></textarea>
+      <center><div class="btn-t2" onclick="ClickNewMsg()" disabled>สร้างข้อความเอง</div></center>
+    </div>
+  </div>
+
+
+  <div id="Page24" style="text-align: center;width:80%;margin:auto; max-width: 400px;">
+    <div class="IMGOverImg">
+      <div id="DisplayIMG"></div>
+    </div>
+    <div id="html-content-holder">
+      <div id="DisplayCard"></div>
+    </div>
+    <div class="btn-t2" id="btn_convert">Download Image</div>
+    <br />
+    <h3>Preview :</h3>
+    <div id="previewImg"></div>
+
+    <div class="clr" style="height: 40px;"></div>
+    <div class="btn-t1" onclick="GotoPage1()">เปลี่ยนการ์ด</div>
+    <div class="btn-t1" onclick="GotoPage2()">เปลี่ยนข้อความ</div>
+  </div>
+
+
+
+  <div class="clr" style="height:20px;"></div>
+  <center>
+    <!--
+    <div style="max-width: 360px;">
+      <div id="btn-1" class="btn-t1" onclick="window.location.href='index.html';">หน้าแรก</div>
+      <div id="btn-2" class="btn-t1" onclick="window.location.href='index.html';">เลือกการ์ด</div>
+      <div id="btn-3" class="btn-t1" onclick="window.location.href='index.html';">เลือกข้อความ</div>
+    </div>
+    -->
+    <div class="text-buttom">@LINE Retail Socitey</div>
+  </center>
+</div>
+
+<script src="js/momcard.js"></script>
+</body>
+</html>

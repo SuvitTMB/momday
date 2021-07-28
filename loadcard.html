@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <!--
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+-->
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
+    <style>
+    .panel {
+      width: 400px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .form-control,
+    .custom-file {
+      width: 230px;
+    }
+    #photo {
+        /*border: 4px solid green;*/
+        max-width: 400px;
+        max-height: 450px;
+        padding: 4px;
+    }
+    </style>
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="index.html">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="momphoto.html">ส่งภาพประกวด</a></li>
+          <li><a href="momcard.html">การ์ดวันแม่</a></li>
+          <li><a href="momsong.html">ฟังเพลงแม่</a></li>
+          <li><a href="moncontent.html">บอกรักแม่</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="row">
+    <center>        
+    <div id="photo" style="margin-top:60px;">
+        <div id="DisplayIMG"></div>
+        <br><br>
+    </div>
+    <button onclick="takeshot()" class="btn-t2">คลิกเพื่อสร้างการ์ดของฉัน</button>   
+    <div id="ShowCard">
+        <div style="padding-top:25px;">แสดงการ์ดวันแม่ของคุณ</div>
+            <div id="output"></div>
+        <div style="margin-top:20px;font-size: 10px;">
+            <div style="color:#ff0000;">ระบบได้ทำการสร้างภาพการ์ดเรียบร้อยแล้ว</div>
+            <div style="color:#000000;">กดค้างที่รูปภาพ หรือคลิกขวา เพื่อทำการบันทึกรูปภาพนี้</div>
+        </div>
+    </div>
+    <div class="clr" style="height: 30px;"></div>
+    <div id="btn-1" class="btn-t1" onclick="window.location.href='momcard.html';">ทำรายการใหม่</div>
+    <div class="clr" style="height: 30px;"></div>
+
+    </center>
+</div>
+
+<script src="js/loadcard.js"></script>
+<script type="text/javascript">
+    function takeshot() {
+        let div = document.getElementById('photo');
+        html2canvas(div).then(
+            function (canvas) {
+                document
+                .getElementById('output')
+                .appendChild(canvas);
+            })
+        document.getElementById('photo').style.display='none';
+        document.getElementById('ShowCard').style.display='block';
+    }
+</script>
+
+</body>
+</html>
