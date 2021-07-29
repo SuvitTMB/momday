@@ -9,7 +9,8 @@ var arrayIN = [];
 var CountIN = 0;
 var MaxTime = 0;
 var qInterval;
-var sGroupChart ="Momday";
+var sGroupChart = "Momday";
+var dateString = "";
 
 var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
@@ -165,11 +166,19 @@ function ShowChat(doc) {
 
 
 function CheckMemo() {
-  var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  NewDate();
+  var Sortdate = Math.round(Date.now() / 1000);
   if(document.getElementById("TextMamo").value=="") {
-    alert("กรุณาใส่ข้อความก่อนกดส่งกำลังใจ");
+    alert("กรุณาใส่ข้อความก่อน");
     return
   }
+
+
+  //var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
+  //if(document.getElementById("TextMamo").value=="") {
+  //  alert("กรุณาใส่ข้อความก่อนกดส่งกำลังใจ");
+  //  return
+  //}
   db.collection("Bento").add({
     GroupChart : sGroupChart,
     LineID : sLineID,
@@ -177,7 +186,7 @@ function CheckMemo() {
     LinePicture : sLinePicture,
     PostMemo : document.getElementById("TextMamo").value,
     PostDate : dateString,
-    PostTimeStamp : dateString
+    PostTimeStamp : Sortdate
   });  
   i = i+1;
   var str1 = "";  
@@ -186,7 +195,6 @@ function CheckMemo() {
   str1+='<img src="'+ sLinePicture +'" class="img-avatar"></div>';
   str1+='<div class="media-body"><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
   str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ dateString +'</small></div></div>';
-
   str = str1+str;
   $("#DisplayMemo").html(str); 
   $("#TextMamo").val('');
@@ -253,3 +261,33 @@ function stopcountdown() {
     clearInterval(qInterval);
 }
 
+
+function NewDate() {
+  var today = new Date();
+  var day = today.getDate() + "";
+  var month = (today.getMonth() + 1) + "";
+  var year = today.getFullYear() + "";
+  var hour = today.getHours() + "";
+  var minutes = today.getMinutes() + "";
+  var seconds = today.getSeconds() + "";
+  var ampm = hour >= 12 ? 'PM' : 'AM';
+
+  day = checkZero(day);
+  month = checkZero(month);
+  year = checkZero(year);
+  hour = checkZero(hour);
+  minutes = checkZero(minutes);
+  seconds = checkZero(seconds);
+
+  dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
+  //alert(GetNewDate);
+  //console.log(day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm);
+}
+
+
+function checkZero(data){
+  if(data.length == 1){
+    data = "0" + data;
+  }
+  return data;
+}
