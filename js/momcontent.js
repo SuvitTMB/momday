@@ -9,7 +9,7 @@ var arrayIN = [];
 var CountIN = 0;
 var MaxTime = 0;
 var qInterval;
-var sGroupChart ="Bento";
+var sGroupChart ="Momday";
 
 var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
@@ -100,6 +100,7 @@ function DisplayChat() {
 
   db.collection('Bento')
     //.where("GroupChart",'==',sGroupChart)
+    .where('GroupChart','==',sGroupChart)
     .orderBy('PostTimeStamp','desc')
     .limit(100).get().then( snapshot => {
       snapshot.forEach(doc=> {
@@ -198,7 +199,8 @@ function CheckUpdate() {
   console.log(CheckLastTime);
 
 
-  db.collection("Bento").where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
+  //db.collection("Bento").where('GroupChart','==',sGroupChart).where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
+  db.collection("Bento").where('GroupChart','==',sGroupChart).where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
     snapshot.forEach(doc=> {
       NewChat(doc);
     });
