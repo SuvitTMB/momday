@@ -16,9 +16,9 @@ var dateString = "";
 //var sLineName = "Website";
 //var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
 
-var sLineID = sessionStorage.getItem("LineID");
-var sLineName = sessionStorage.getItem("LineName");
-var sLinePicture = sessionStorage.getItem("LinePicture");
+//var sLineID = sessionStorage.getItem("LineID");
+//var sLineName = sessionStorage.getItem("LineName");
+//var sLinePicture = sessionStorage.getItem("LinePicture");
 
 
 //sessionStorage.setItem("LineID", sLineID);
@@ -73,76 +73,27 @@ loadmore.addEventListener('click', (e) => {
 var arrayIN = [];
 var CountIN = 0;
 var CheckLastTime = "";
+
+
 function DisplayChat() {
   str = "";
-  //$("#DisplayMemo").remove();
   document.getElementById("TextMamo").innerHTML = "";   
   document.getElementById("DisplayMemo").innerHTML = "";   
-  //db.orderBy("state").orderBy("PostTimeStamp", "desc").limit(3).get().then((snapshot)=> {
-  //db.collection("Bento").orderBy("PostTimeStamp", "desc").get().then((snapshot)=> {
-  //db.orderBy("state").orderBy("PostTimeStamp", "desc").get().then((snapshot)=> {
-    //console.log(snapshot.length);
-  //db.collection("Bento").where("GroupChart", "==", sGroupChart).orderBy("PostTimeStamp","desc").get().then((snapshot)=> {
-    //snapshot.forEach(doc=>{
-
-/*
-  db.firestore().collection('Bento')
-    .where("GroupChart",'==',sGroupChart)
-    .orderBy('PostTimeStamp','asc')
-    .limit(2).get()
-    .then((snapshot)=> { snapshot.forEach(doc=> {
-
-
-      //db.collection("Bento").orderBy("PostTimeStamp","desc");
-      //.orderBy("GroupChart", "desc");
-      //arrayIN.push(doc.id);
-      //console.log(doc);
-      ShowChat(doc);
-    });
-    DisplayLog();
-    //alert(i);
-  });
-*/
-
-
   db.collection('Bento')
     //.where("GroupChart",'==',sGroupChart)
     .where('GroupChart','==',sGroupChart)
     .orderBy('PostTimeStamp','desc')
     .limit(100).get().then( snapshot => {
       snapshot.forEach(doc=> {
-        //doc.data().orderBy('PostTimeStamp','asc');
         ShowChat(doc);
       });
   })
   DisplayLog();
-
-
-
-
-
-
-  //alert(arrayIN.length);
-  //console.log(doc);
-  
-  //console.log(arrayIN.length);
-
-
-
-    //arrayIN.forEach(function(element) {
-    //console.log(element.length);
-    //});
-
-  //CountIN = arrayIN.length;
-  //alert(i);
-  //var ShowResults = arrayIN.length;
-  //alert(ShowResults);
 }
 
 
 function DisplayLog() {
   timecountdown();
-  //CheckUpdate();
   console.log(arrayIN.length);
   $("#DisplayMemo").html(str);    
 }
@@ -154,7 +105,7 @@ function ShowChat(doc) {
   i = i+1;
   arrayIN.push(doc.id);
   if(CheckLastTime=="") { CheckLastTime = doc.data().PostTimeStamp; }
-  if(sLineID==doc.data().LineID) {
+  if(sessionStorage.getItem("LineID")==doc.data().LineID) {
     str+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
     str+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
@@ -166,7 +117,6 @@ function ShowChat(doc) {
     str+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostDate +'</small></div></div></div>';
   }
     $("#DisplayMemo").html(str); 
-  //console.log(arrayIN.length);
 }
 
 
@@ -179,27 +129,21 @@ function CheckMemo() {
     return
   }
 
-
-  //var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-  //if(document.getElementById("TextMamo").value=="") {
-  //  alert("กรุณาใส่ข้อความก่อนกดส่งกำลังใจ");
-  //  return
-  //}
   db.collection("Bento").add({
     GroupChart : sGroupChart,
-    LineID : sLineID,
-    LineName : sLineName,
-    LinePicture : sLinePicture,
+    LineID : sessionStorage.getItem("LineID"),
+    LineName : sessionStorage.getItem("LineName"),
+    LinePicture : sessionStorage.getItem("LinePicture"),
     PostMemo : document.getElementById("TextMamo").value,
     PostDate : dateString,
     PostTimeStamp : Sortdate
   });  
+
   i = i+1;
   var str1 = "";  
-
   str1+='<div class="message-feed right" id="'+i+'"><div class="pull-right">';
-  str1+='<img src="'+ sLinePicture +'" class="img-avatar"></div>';
-  str1+='<div class="media-body"><div class="LineName">'+sLineName +'</div><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
+  str1+='<img src="'+ sessionStorage.getItem("LinePicture") +'" class="img-avatar"></div>';
+  str1+='<div class="media-body"><div class="LineName">'+ sessionStorage.getItem("LineName") +'</div><div class="mf-content">'+ document.getElementById("TextMamo").value +'</div>';
   str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ dateString +'</small></div></div>';
   str = str1+str;
   $("#DisplayMemo").html(str); 
@@ -209,10 +153,7 @@ function CheckMemo() {
 
 function CheckUpdate() {
   CheckLastTimeUpdate = "";
-  //alert("stoptime : "+CheckLastTime);
   console.log(CheckLastTime);
-
-
   //db.collection("Bento").where('GroupChart','==',sGroupChart).where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
   db.collection("Bento").where('GroupChart','==',sGroupChart).where('PostTimeStamp','>',CheckLastTime).get().then((snapshot)=> {
     snapshot.forEach(doc=> {
@@ -224,7 +165,6 @@ function CheckUpdate() {
 
 
 
-
 var str = "";
 function NewChat(doc) {
   var str1 = "";
@@ -232,7 +172,7 @@ function NewChat(doc) {
     CheckLastTimeUpdate = "1";
     CheckLastTime = doc.data().PostTimeStamp; 
   }
-  if(sLineID==doc.data().LineID) {
+  if(sessionStorage.getItem("LineID")==doc.data().LineID) {
     str1+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
     str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str1+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
@@ -256,7 +196,6 @@ function timecountdown() {
     if(timeleft <= 0) {
       stopcountdown();
       CheckUpdate();
-      //DisplayHeart();
     }
     },10000);
 }
