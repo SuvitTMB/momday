@@ -10,29 +10,29 @@ $(document).ready(function () {
   //document.getElementById('btn-3').style.display='none';
   document.getElementById('Page21').style.display='block';
   document.getElementById('Page22').style.display='none';
-  document.getElementById('Page23').style.display='none';
-  document.getElementById('Page24').style.display='none';
+  //document.getElementById('Page23').style.display='none';
+  //document.getElementById('Page24').style.display='none';
 });
 
 
 function GotoPage1() {
   document.getElementById('Page22').style.display='block';
-  document.getElementById('Page23').style.display='none';
-  document.getElementById('Page24').style.display='none';
+  //document.getElementById('Page23').style.display='none';
+  //document.getElementById('Page24').style.display='none';
 }
 
 function GotoPage2() {
   document.getElementById('Page22').style.display='none';
-  document.getElementById('Page23').style.display='block';
-  document.getElementById('Page24').style.display='none';
+  //document.getElementById('Page23').style.display='block';
+  //document.getElementById('Page24').style.display='none';
 }
 
 
 function CreateCard() {
   document.getElementById('Page21').style.display='none';
   document.getElementById('Page22').style.display='block';
-  document.getElementById('Page23').style.display='none';
-  document.getElementById('Page24').style.display='none';
+  //document.getElementById('Page23').style.display='none';
+  //document.getElementById('Page24').style.display='none';
 
  // document.getElementById('btn-1').style.display='none';
   //document.getElementById('btn-2').style.display='block';
@@ -54,8 +54,8 @@ function SelectCardNumber(n) {
 
   document.getElementById('Page21').style.display='none';
   document.getElementById('Page22').style.display='none';
-  document.getElementById('Page23').style.display='block';
-  document.getElementById('Page24').style.display='none';
+  //document.getElementById('Page23').style.display='block';
+  //document.getElementById('Page24').style.display='none';
 }
 
 //https://www.sanook.com/campus/1391377/
