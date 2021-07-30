@@ -16,13 +16,13 @@ $(document).ready(function () {
 
 
 function GotoPage1() {
-  document.getElementById('Page22').style.display='block';
+  //document.getElementById('Page22').style.display='block';
   //document.getElementById('Page23').style.display='none';
   //document.getElementById('Page24').style.display='none';
 }
 
 function GotoPage2() {
-  document.getElementById('Page22').style.display='none';
+  //document.getElementById('Page22').style.display='none';
   //document.getElementById('Page23').style.display='block';
   //document.getElementById('Page24').style.display='none';
 }
@@ -82,8 +82,9 @@ function ClickNewMsg() {
 
 
 function ShowImages() {
-
-  location.href = "createcard.html?SelectCard="+SelectCard;
+  window.open("createcard.html?SelectCard="+SelectCard+"");
+  location.href = "momcard.html";
+  //location.href = "createcard.html?SelectCard="+SelectCard;
 
 /*
   location.href = "loadcard.html?SelectCard="+SelectCard+"&SelectMsg="+SelectMsg;
