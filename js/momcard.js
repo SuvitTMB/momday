@@ -44,6 +44,8 @@ function CreateCard() {
 
 function SelectCardNumber(n) {
   SelectCard = n;
+  ShowImages();
+
   //if(n==1) { SelectCard = "momLDP.png"; } else 
   //if(n==2) { SelectCard = "Card2.png"; } else 
   //if(n==3) { SelectCard = "Card3.png"; } else 
@@ -81,10 +83,10 @@ function ClickNewMsg() {
 
 function ShowImages() {
 
+  location.href = "createcard.html?SelectCard="+SelectCard;
+
+/*
   location.href = "loadcard.html?SelectCard="+SelectCard+"&SelectMsg="+SelectMsg;
-
-
-
   document.getElementById('Page22').style.display='none';
   document.getElementById('Page23').style.display='none';
   document.getElementById('Page24').style.display='block';
@@ -96,7 +98,7 @@ function ShowImages() {
   str+= '<div class="img_profiletext">Website</div></div>';
 
   $("#DisplayIMG").html(str); 
-
+*/
   //$("#DisplayCard").html(str); 
 }
 

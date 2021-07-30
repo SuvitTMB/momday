@@ -34,11 +34,14 @@ function getParameterByName(name, url) {
 function CreateCard() {
   //document.getElementById("pictureUrl").html(sLinePicture);
   //document.getElementById("displayName").append(sLineName);
-  if(SelectCard==1) { nSelectCard = "./img/momLDP-1.png"; } else 
-  if(SelectCard==2) { nSelectCard = "./img/momLDP-2.png"; } else 
-  if(SelectCard==3) { nSelectCard = "Card3.png"; } else 
-  if(SelectCard==4) { nSelectCard = "Card4.png"; } else 
-  if(SelectCard==5) { nSelectCard = "https://cf.shopee.co.th/file/01ed51407687c5d81543171fc7a080df_xxhdpi"; }
+  if(SelectCard==1) { nSelectCard = "./img/momCard-1.jpg"; } else 
+  if(SelectCard==2) { nSelectCard = "./img/momCard-2.jpg"; } else 
+  if(SelectCard==3) { nSelectCard = "./img/momCard-3.jpg"; } else 
+  if(SelectCard==4) { nSelectCard = "./img/momCard-4.jpg"; } else 
+  if(SelectCard==5) { nSelectCard = "./img/momCard-5.jpg"; } else
+  if(SelectCard==6) { nSelectCard = "./img/momCard-6.jpg"; } else 
+  if(SelectCard==7) { nSelectCard = "./img/momCard-7.jpg"; } else 
+  if(SelectCard==8) { nSelectCard = "./img/momCard-8.jpg"; } 
 
   if(SelectMsg.length<2) {
     //alert(SelectMsg.length);
@@ -54,10 +57,12 @@ function CreateCard() {
   var str = "";
   str+= '<div class="IMGOverImg" style="margin-left:-20px;">';
   str+= '<img src="'+ nSelectCard +'" style="width:100%;border-radius: 5px;">';
-  str+= '<div class="top-left">Line Retail Society<div class="text-date">12 สิงหาคม 2564</div>';
+  //str+= '<div class="top-left">Line Retail Society<div class="text-date">12 สิงหาคม 2564</div>';
+  str+= '<div class="top-left"><div style="margin:20px 0 0 -4px;color:#ffffff;font-size:11px;">by '+ sLineName +'</div>';
   str+= '<div class="Centered">'+ nSelectMsg +'</div>';
   str+= '<div class="top-right"><img src="'+sLinePicture+'" width="70px;">';
-  str+= '<div class="img_profiletext">'+ sLineName +'</div></div>';
+  str+= '</div>';
+  //str+= '<div class="img_profiletext">'+ sLineName +'</div></div>';
   str+= '</div>';
   $("#DisplayIMG").html(str); 
 
