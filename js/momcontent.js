@@ -193,12 +193,16 @@ function NewChat(doc) {
       }, 3000);
     }
   }
-  if(sessionStorage.getItem("LineID")==doc.data().LineID) {
+
+
+  if(sessionStorage.getItem("LineID")!=doc.data().LineID) {
+/*
     str1+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
     str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str1+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
     str1+='<small class="mf-date"><i class="fa fa-clock-o"></i> '+ doc.data().PostDate +'</small></div></div></div>';
   } else {
+*/
     str1+='<div class="list-element"><div class="message-feed media" id="'+i+'"><div class="pull-left">';
     str1+='<img src="'+ doc.data().LinePicture +'" class="img-avatar"></div>';
     str1+='<div class="media-body"><div class="LineName">'+doc.data().LineName +'</div><div class="mf-content">'+ doc.data().PostMemo +'</div>';
