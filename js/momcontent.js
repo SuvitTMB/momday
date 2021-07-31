@@ -178,10 +178,20 @@ function CheckUpdate() {
 
 var str = "";
 function NewChat(doc) {
+
+
   var str1 = "";
   if(CheckLastTimeUpdate=="") { 
     CheckLastTimeUpdate = "1";
     CheckLastTime = doc.data().PostTimeStamp; 
+    if(sessionStorage.getItem("LineID")!=doc.data().LineID) {
+      $(".notify").toggleClass("active");
+      $("#notifyType").toggleClass("success");
+      setTimeout(function() {
+        $(".notify").removeClass("active");
+        $("#notifyType").removeClass("success");
+      }, 3000);
+    }
   }
   if(sessionStorage.getItem("LineID")==doc.data().LineID) {
     str1+='<div class="list-element"><div class="message-feed right" id="'+i+'"><div class="pull-right">';
