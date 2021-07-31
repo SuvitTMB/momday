@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<title>Sava & Upload Image</title>
+	</head>
+	<body>
+		<style>
+			img{ height: 200px;width:200px; border:2px solid #000; }
+		</style>
+		Image Name <input id="namebox" type="text"> <br><br>
+		<img id="mying"> <label id="UpProgress"></label> <br><br>
+
+		<button id="select">Select Image</button>
+		<button id="upload">Upload Image</button>
+		<!--<button id="retrieve">Retrieve Image</button>-->
+
+		<!------- FIREBASE LIBRARIES ------>
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
+		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script> 
+
+
+		<!------- FIREBASE LIBRARIES ------>
+		<script id="ManiScript">
+		/*------- VARIABLES ------*/
+			var ImaName, ImgUrl;
+			var files = [];
+			var reader;
+
+		/*------- CONFIGURATION ------*/
+			var firebaseConfig = {
+			  apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+			  authDomain: "retailproject-6f4fc.firebaseapp.com",
+			  databaseURL: "https://retailproject-6f4fc-default-rtdb.firebaseio.com",
+			  projectId: "retailproject-6f4fc",
+			  storageBucket: "retailproject-6f4fc.appspot.com",
+			  messagingSenderId: "653667385625",
+			  appId: "1:653667385625:web:a5aed08500de80839f0588",
+			  measurementId: "G-9SKTRHHSW9"
+			};
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+
+		/*------- SELECT PROCESS ------*/
+			document.getElementById("select").onclick = function(e){
+				var input = document.createElement('input');
+				input.type = 'file';
+				//input.click();
+				input.onchange = e=> {
+					files = e.target.files;
+					reader = new FileReader();
+					reader.onload = function() {
+						document.getElementById("mying").src = reader.result;
+					}
+					reader.readAsDataURL(files[0]);
+				}
+				input.click();
+			}
+		/*------- UPLOAD PROCESS ------*/
+			document.getElementById('upload').onclick = function(){
+				ImgName = document.getElementById('namebox').value;
+				var uploadTask = firebase.storage().ref('Images/'+ImgName+".png").put(files[0]);
+
+				uploadTask.on('state_changed', function(snapshot){
+					var progress = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
+					document.getElementById('UpProgress').innerHTML = 'upload '+progress+'%';
+				},
+
+		/*------- Error Handing ------*/
+				function(error) {
+					alert('error in save the image');
+				},
+
+		/*------- Submit image to database ------*/
+				function() {
+					uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
+						ImgUrl = url;
+						firebase.database().ref('Pictures/'+ImgName).set({
+							Name: ImgName,
+							Link: ImgUrl
+						});
+					alert('image added successfully '+ ImgUrl);
+					}
+				);
+
+			});
+		}
+
+		/*------- Retieval Process ------*/
+		/*
+			document.getElementById('retrieve').onclick = function() {
+				ImgName = document.getElementById('namebox').value;
+				firebase.datebase().ref('Pictures/'+ImgName).on('value', function(snapshot){
+					document.getElementById('mying').src = snapshot.val().Link;
+				});
+			}
+		*/
+
+		</script>
+
+
+
+	</body>
+
+</html>
