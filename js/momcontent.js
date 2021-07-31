@@ -39,7 +39,7 @@ var firebaseConfig = {
 */
   apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
   authDomain: "retailproject-6f4fc.firebaseapp.com",
-  databaseURL: "https://retailproject-6f4fc-default-rtdb.firebaseio.com",
+  //databaseURL: "https://retailproject-6f4fc-default-rtdb.firebaseio.com",
   projectId: "retailproject-6f4fc",
   storageBucket: "retailproject-6f4fc.appspot.com",
   messagingSenderId: "653667385625",
