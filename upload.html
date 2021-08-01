@@ -32,7 +32,7 @@
 
 
   <style>
-	 img{ height: 200px;width:200px; border:2px solid #f68b1f; border-radius: 10px;}
+	 .imgView { height: 200px;width:200px; border:2px solid #f68b1f; border-radius: 10px;}
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -60,13 +60,13 @@
   </nav>
 
 <div class="container-max">
-  <div class="container" id="CheckProfile">
+  <div class="container" id="Page-1">
     <div class="section-title" data-aos="fade-up" style="margin-top:80px;color:#0056ff;">
       <center>
 	      <div style="font-size: 15px;font-weight: 600; ">ส่งรูปประกวดวันแม่</div>
 	      <div style="color:#ccc;padding:5px 30px;font-size:12px;width:390px;margin-left: auto; margin-right: auto;">
 	        <div style="padding:10px;">เลือกรูปภาพที่จะส่งประกวด</div>
-	        <img id="mying">
+	        <img id="mying" class="imgView">
 	        <button id="select" class="btn-t2" style="margin: 10px 0 15px 0;">คลิกเพื่อเลือกรูปที่จะส่ง</button>
 	        <div style="padding:10px;">คำอธิบายประกอบรูปภาพนี้</div>
 	        <div><textarea id="namebox" placeholder="พิมพ์ข้อความประกอบรูปภาพ .." style="padding:5px;color:#0056ff;font-size: 12px; height:60px;width:100%;"></textarea></div>	
@@ -74,6 +74,9 @@
 		  </div>
 	  </center>
 	</div>
+  </div>
+  <div class="container" id="Page-2" style="margin:auto;width:390px;">
+  	<div style="padding-top:120px;"><img src="./img/waiting.gif" width="390px;"></div>
   </div>
 </div>
 
@@ -87,6 +90,9 @@
 	var PostMemo="";
 	
 	var sEmpID = "08400";
+
+    document.getElementById('Page-1').style.display='block';
+    document.getElementById('Page-2').style.display='none';
 
 
 /*------- CONFIGURATION ------*/
@@ -133,6 +139,8 @@
 			exit();
 		}
 		//ImgName = document.getElementById('namebox').value;
+	    document.getElementById('Page-1').style.display='none';
+	    document.getElementById('Page-2').style.display='block';
 		var uploadTask = firebase.storage().ref('Images/'+ImgName+".png").put(files[0]);
 
 		uploadTask.on('state_changed', function(snapshot){
