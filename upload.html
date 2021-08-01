@@ -1,105 +1,265 @@
-<html>
-	<head>
-		<title>Sava & Upload Image</title>
-	</head>
-	<body>
-		<style>
-			img{ height: 200px;width:200px; border:2px solid #000; }
-		</style>
-		Image Name <input id="namebox" type="text"> <br><br>
-		<img id="mying"> <label id="UpProgress"></label> <br><br>
-
-		<button id="select">Select Image</button>
-		<button id="upload">Upload Image</button>
-		<!--<button id="retrieve">Retrieve Image</button>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 		<!------- FIREBASE LIBRARIES ------>
-		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
-		<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script> 
+
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 
 
-		<!------- FIREBASE LIBRARIES ------>
-		<script id="ManiScript">
-		/*------- VARIABLES ------*/
-			var ImaName, ImgUrl;
-			var files = [];
-			var reader;
+  <style>
+	 img{ height: 200px;width:200px; border:2px solid #f68b1f; border-radius: 10px;}
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="index.html">Retail Society</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="momphoto.html">ส่งภาพประกวด</a></li>
+          <li><a href="momcard.html">การ์ดวันแม่</a></li>
+          <li><a href="momsong.html">ฟังเพลงแม่</a></li>
+          <li><a href="momcontent.html">บอกรักแม่</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-		/*------- CONFIGURATION ------*/
-			var firebaseConfig = {
-			  apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
-			  authDomain: "retailproject-6f4fc.firebaseapp.com",
-			  databaseURL: "https://retailproject-6f4fc-default-rtdb.firebaseio.com",
-			  projectId: "retailproject-6f4fc",
-			  storageBucket: "retailproject-6f4fc.appspot.com",
-			  messagingSenderId: "653667385625",
-			  appId: "1:653667385625:web:a5aed08500de80839f0588",
-			  measurementId: "G-9SKTRHHSW9"
-			};
-			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
+<div class="container-max">
+  <div class="container" id="CheckProfile">
+    <div class="section-title" data-aos="fade-up" style="margin-top:80px;color:#0056ff;">
+      <center>
+	      <div style="font-size: 15px;font-weight: 600; ">ส่งรูปประกวดวันแม่</div>
+	      <div style="color:#ccc;padding:5px 30px;font-size:12px;width:390px;margin-left: auto; margin-right: auto;">
+	        <div style="padding:10px;">เลือกรูปภาพที่จะส่งประกวด</div>
+	        <img id="mying">
+	        <button id="select" class="btn-t2" style="margin: 10px 0 15px 0;">คลิกเพื่อเลือกรูปที่จะส่ง</button>
+	        <div style="padding:10px;">คำอธิบายประกอบรูปภาพนี้</div>
+	        <div><textarea id="namebox" placeholder="พิมพ์ข้อความประกอบรูปภาพ .." style="padding:5px;color:#0056ff;font-size: 12px; height:60px;width:100%;"></textarea></div>	
+			<button id="upload" class="btn-t1">Upload Image</button>
+		  </div>
+	  </center>
+	</div>
+  </div>
+</div>
 
-		/*------- SELECT PROCESS ------*/
-			document.getElementById("select").onclick = function(e){
-				var input = document.createElement('input');
-				input.type = 'file';
-				//input.click();
-				input.onchange = e=> {
-					files = e.target.files;
-					reader = new FileReader();
-					reader.onload = function() {
-						document.getElementById("mying").src = reader.result;
-					}
-					reader.readAsDataURL(files[0]);
-				}
-				input.click();
+
+<!------- FIREBASE LIBRARIES ------>
+<script id="ManiScript">
+/*------- VARIABLES ------*/
+	var ImaName, ImgUrl;
+	var files = [];
+	var reader;
+	var PostMemo="";
+	
+	var sEmpID = "08400";
+
+
+/*------- CONFIGURATION ------*/
+	var firebaseConfig = {
+	  apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
+	  authDomain: "retailproject-6f4fc.firebaseapp.com",
+	  databaseURL: "https://retailproject-6f4fc-default-rtdb.firebaseio.com",
+	  projectId: "retailproject-6f4fc",
+	  storageBucket: "retailproject-6f4fc.appspot.com",
+	  messagingSenderId: "653667385625",
+	  appId: "1:653667385625:web:a5aed08500de80839f0588",
+	  measurementId: "G-9SKTRHHSW9"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+
+
+/*------- SELECT PROCESS ------*/
+	document.getElementById("select").onclick = function(e){
+		var input = document.createElement('input');
+		input.type = 'file';
+		//input.click();
+		input.onchange = e=> {
+			files = e.target.files;
+			reader = new FileReader();
+			reader.onload = function() {
+				document.getElementById("mying").src = reader.result;
 			}
-		/*------- UPLOAD PROCESS ------*/
-			document.getElementById('upload').onclick = function(){
-				ImgName = document.getElementById('namebox').value;
-				var uploadTask = firebase.storage().ref('Images/'+ImgName+".png").put(files[0]);
-
-				uploadTask.on('state_changed', function(snapshot){
-					var progress = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
-					document.getElementById('UpProgress').innerHTML = 'upload '+progress+'%';
-				},
-
-		/*------- Error Handing ------*/
-				function(error) {
-					alert('error in save the image');
-				},
-
-		/*------- Submit image to database ------*/
-				function() {
-					uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
-						ImgUrl = url;
-						firebase.database().ref('Pictures/'+ImgName).set({
-							Name: ImgName,
-							Link: ImgUrl
-						});
-					alert('image added successfully '+ ImgUrl);
-					}
-				);
-
-			});
+			reader.readAsDataURL(files[0]);
 		}
+		input.click();
+	}
+/*------- UPLOAD PROCESS ------*/
+	document.getElementById('upload').onclick = function(){
+		//alert("Check="+document.getElementById("mying").src);
+		ImgName = sEmpID;
+		PostMemo = document.getElementById('namebox').value;
+		if(document.getElementById("mying").src=="") {
+			alert("กรุณา Upload รูปภาพที่จะส่งประกวด");
+			exit();
+		}
+		if(PostMemo=="") {
+			alert("กรุณาพิมพ์ข้อความก่อนทำการบันทึกรายการ");
+			exit();
+		}
+		//ImgName = document.getElementById('namebox').value;
+		var uploadTask = firebase.storage().ref('Images/'+ImgName+".png").put(files[0]);
 
-		/*------- Retieval Process ------*/
-		/*
-			document.getElementById('retrieve').onclick = function() {
-				ImgName = document.getElementById('namebox').value;
-				firebase.datebase().ref('Pictures/'+ImgName).on('value', function(snapshot){
-					document.getElementById('mying').src = snapshot.val().Link;
+		uploadTask.on('state_changed', function(snapshot){
+			var progress = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
+			//document.getElementById('UpProgress').innerHTML = 'upload '+progress+'%';
+		},
+
+/*------- Error Handing ------*/
+		function(error) {
+			alert('error in save the image');
+		},
+
+/*------- Submit image to database ------*/
+		function() {
+			uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
+				ImgUrl = url;
+				firebase.database().ref('Pictures/'+ImgName).set({
+					Name: ImgName,
+					Link: ImgUrl
 				});
+			//alert('image added successfully = '+ ImgUrl);
+			//location.href = "savePicture.html?PostPicture="+ImgUrl+"&PostMemo="+PostMemo;
+			UpdateMomPicture();
 			}
-		*/
+		);
 
-		</script>
+	});
+}
+
+/*------- Retieval Process ------*/
+/*
+	document.getElementById('retrieve').onclick = function() {
+		ImgName = document.getElementById('namebox').value;
+		firebase.datebase().ref('Pictures/'+ImgName).on('value', function(snapshot){
+			document.getElementById('mying').src = snapshot.val().Link;
+		});
+	}
+*/
+
+
+	var aCheck = 0;
+	var db = firebase.firestore().collection("Momday");
+	var Eid = "";
+	var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+	var sLineName = "Website";
+	var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+	var sEmpID = "08400";
+	var sEmpBr = "OCSE";
+	var sEmpName = "สุวิทย์ ชัยรุ่งปัญญา";	
+
+		function UpdateMomPicture() {
+		//alert(sLineID);
+		db.where('LineID','==',sLineID).get().then((snapshot)=> {
+			snapshot.forEach(doc=> {
+				aCheck = 1;
+				Eid = doc.id;
+				//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
+		  });
+		  UpdateData();
+		});
+	}
 
 
 
-	</body>
+	function UpdateData() {
+	    NewDate();
+	    var DateTimeStamp = Math.round(Date.now() / 1000);
+	    //alert(aCheck);
+	    if(aCheck==1) {
+	      db.doc(Eid).update({
+	        PostPicture : ImgUrl, 
+	        PostMemo : PostMemo,
+	        PostDate : dateString,
+	        PostTimeStamp : DateTimeStamp
+	      });
+	    } else {
+	      db.add({
+	        LineID : sLineID,
+	        LineName : sLineName,
+	        LinePicture : sLinePicture,
+	        empBr : sEmpBr,
+	        empID : sEmpID,
+	        empName : sEmpName,   
+	        PostPicture : ImgUrl, 
+	        PostMemo : PostMemo,
+	        PostDate : dateString,
+	        PostTimeStamp : DateTimeStamp
+	      });       
+	    }
+	    location.href = "showpicture.html";
+
+	}
+
+
+	function NewDate() {
+	  var today = new Date();
+	  var day = today.getDate() + "";
+	  var month = (today.getMonth() + 1) + "";
+	  var year = today.getFullYear() + "";
+	  var hour = today.getHours() + "";
+	  var minutes = today.getMinutes() + "";
+	  var seconds = today.getSeconds() + "";
+	  var ampm = hour >= 12 ? 'PM' : 'AM';
+	  day = checkZero(day);
+	  month = checkZero(month);
+	  year = checkZero(year);
+	  hour = checkZero(hour);
+	  minutes = checkZero(minutes);
+	  seconds = checkZero(seconds);
+	  dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
+	}
+
+
+	function checkZero(data){
+	  if(data.length == 1){
+	    data = "0" + data;
+	  }
+	  return data;
+	}
+
+
+
+
+</script>
+
+
+
+</body>
 
 </html>
