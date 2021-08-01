@@ -66,9 +66,10 @@
 
 	        <div style="padding:10px;">คำอธิบายประกอบรูปภาพนี้</div>
 	        <div id="namebox" style="color:#0056ff;border:1px solid #f68b1f;background: #fce5b6;padding: 5px;border-radius: 10px;"></div>	
-	        <div class="clr" style="height: 20px;"></div>
+	        <div id="DisplayDate" style="padding:15px; font-size: 11px; color:#f68b1f;"></div>
+	        <div class="clr"></div>
       		<div id="btn-1" class="btn-t1" onclick="window.location.href='index.html';">หน้าแรก</div>
-      		<div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">โหลดภาพใหม่่</div>
+      		<div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">โหลดภาพใหม่</div>
 
 		  </div>
 	  </center>
@@ -98,6 +99,7 @@
 <script type="text/javascript">	
 	var aCheck = 0;
 	var Eid = "";
+	var sPostDate = "";
 	var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 	var sLineName = "Website";
 	var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
@@ -128,6 +130,7 @@
 				Eid = doc.id;
 				sPostPicture = doc.data().PostPicture;
 				sPostMemo = doc.data().PostMemo;
+				sPostDate = doc.data().PostDate;
 				//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
 		  });
 		  ShowData();
@@ -144,6 +147,7 @@
 		//var ShowPicture = '<img src="'+getParameterByName('PostPicture')+'" width="200px;">';
 		//$("#ShowPicture").html(ShowPicture);
 		$("#namebox").html(sPostMemo);
+		$("#DisplayDate").html("โหลดภาพเมื่อวันที่ "+sPostDate);
 
 
 	}

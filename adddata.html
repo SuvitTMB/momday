@@ -62,7 +62,7 @@
             <div style="margin-top:60px;"><img id="pictureUrl" class="imgprofile"></div>
             <div style="color:#0056ff;font-weight: 700; font-size:16px;"><p id="displayName"></p></div>
             <div class="btn-t2" onclick="ClickCheckLogin()">คลิกที่นี่ ... เพื่อลงทะเบียนเริ่มต้นใช้งาน</div>
-            <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการตรวจสอบความถูกต้อง<br>ของข้อมูลของท่านในการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
+            <div style="padding-top:25px;color:#555555;">ขอความร่วมมือในการกรอกข้อมูลของท่าน<br>ก่อนเริ่มการเข้าใช้งาน <b>LINE Retail Society</b><br><br>*** ขอสงวนสิทธิ์การเข้าใช้งานเฉพาะชาว Retail เท่านั้น ***</div>
             <div><div id="isLoggedIn" style="color:#ffffff;"></div><div id="userId" style="color:#ffffff;"></div></div>
             </center>
           </div>
@@ -94,6 +94,7 @@
                 <option value="PRODUCT">PRODUCT Team</option>
                 <option value="OCSE">OCSE Team</option>
                 <option value="CHIEF">CHIEF Team</option>
+                <option value="CHIEF">อื่น ๆ</option>
               </select>
             </div>
             <!--
@@ -119,7 +120,7 @@
           <div style="padding:15px 0px 15px 0px;">
             <center>
             <div style="margin-top:60px;color:#0056ff;font-weight: 700; font-size:16px;padding:10px;">ยินดีต้อนรับสู่ "<b>LINE Retail Society</b>"</div>
-            <div style="padding:10px;"><img src="img/ready.png" width="300px;"></div>
+            <div style="padding:10px;"><img src="./img/momCard-1.jpg" class="imgLDP"></div>
             <div class="btn-t2" onclick="GotoWeb()" style="margin-top:20px;">คลิกที่นี่ เพื่อเข้าสู่เว็บไซต์</div>
             </center>
           </div>
@@ -136,7 +137,17 @@
 
 
 <script type="text/javascript">
-  //var alineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+
+  var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+  var sLineName = "Website";
+  var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+
+  sessionStorage.setItem("LineID", sLineID);
+  sessionStorage.setItem("LineName", sLineName);
+  sessionStorage.setItem("LinePicture", sLinePicture);
+
+
+
   //var alineID = "testlineid";
   var aCheck = 0;
   var Eid = "";
@@ -148,16 +159,8 @@
 
   //var dateString = timeSolver.getString(new Date(), "YYYY/MM/DD HH:MM:SS.SSS")
   var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' });
-  //console.log(dateString);
-  //if(aStatusEdit==0) {
-    document.getElementById('fname').disabled = false;
-    document.getElementById('empid').disabled = false;
-  //} else if(aStatusEdit!=0) {
-  //  document.getElementById('fname').disabled = true;
-  //  document.getElementById('empid').disabled = true;
-  //}
-
-
+  document.getElementById('fname').disabled = false;
+  document.getElementById('empid').disabled = false;
 
   var firebaseConfig = {
     apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
@@ -175,10 +178,18 @@
   document.getElementById('CheckLogin').style.display='block';
   document.getElementById('CheckProfile').style.display='none';
   document.getElementById('CheckConfirm').style.display='none';
+
+  document.getElementById("pictureUrl").src = sessionStorage.getItem("LinePicture");
+  document.getElementById("pictureUrl1").src = sessionStorage.getItem("LinePicture");
+  document.getElementById("userId").append(sessionStorage.getItem("LineID"));
+  document.getElementById("displayName").append(sessionStorage.getItem("LineName"));
+  document.getElementById("displayName1").append(sessionStorage.getItem("LineName"));
+
+
   //document.getElementById('CheckLockUser').style.display='none';
 
 
-
+/*
   async function main() {
     await liff.init({ liffId: "1655966947-rope1zn6" });
     document.getElementById("isLoggedIn").append(liff.isLoggedIn());
@@ -208,19 +219,20 @@
       external: true     
     })
   }
+*/
 
 	function ClickCheckLogin() {
 		document.getElementById('CheckLogin').style.display='none';
 		document.getElementById('CheckProfile').style.display='block';
 		document.getElementById('CheckConfirm').style.display='none';
     //document.getElementById('CheckLockUser').style.display='none';
-		ReadData(alineID);
+		ReadData();
 	  //GetLineID(alineID);
 	}
 
   //aStatusPass = 9;
-  function ReadData(gLineID) {
-    db.where('lineID','==',gLineID).get().then((snapshot)=> {
+  function ReadData() {
+    db.where('lineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
       snapshot.forEach(doc=> {
         aStatusPass = doc.data().statuspass;
         aStatusConfirm = doc.data().statusconfirm;
@@ -311,15 +323,14 @@ function ClickSaveProfile() {
 
     if(aCheck==1) {
       db.doc(Eid).update({
-        linename : aLinename,
+        //linename : aLinename,
+        //empPicture : aPicture,
         empName : a1,
         empID : a2,
-        //empEmail : a3,
         empPhone : a4,
         empBr : a5,
         empAddress : a6,   
         memo : a7, 
-        empPicture : aPicture,
         lastcheckin : dateString,
         statusconfirm : aStatusConfirm,
         statuspass : aStatusPass,
@@ -328,16 +339,15 @@ function ClickSaveProfile() {
       GotoPage = 1;
     } else {
       db.add({
-        lineID : alineID,
-        linename : aLinename,
+        lineID : sessionStorage.getItem("LineID"),
+        linename : sessionStorage.getItem("LineName"),
+        empPicture : sessionStorage.getItem("LinePicture"),
         empName : a1,
         empID : a2,
-        //empEmail : a3,
         empPhone : a4,
         empBr : a5,
         empAddress : a6,   
         memo : a7, 
-        empPicture : aPicture,
         lastcheckin : dateString,
         statusconfirm : 0,  
         statuspass : 0,
@@ -358,7 +368,7 @@ function ClickSaveProfile() {
 }
 
 function GotoWeb() {
-  window.location.href = 'index.html';
+  window.location.href = 'momday.html';
 }
 
 
@@ -415,6 +425,7 @@ function phone_formatting(ele,restore) {
 
 }
   
+
 function phone_number_check(field,e) {
   var key_code = e.keyCode,
       key_string = String.fromCharCode(key_code),
