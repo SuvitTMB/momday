@@ -70,7 +70,7 @@
 	        <button id="select" class="btn-t2" style="margin: 10px 0 15px 0;">คลิกเพื่อเลือกรูปที่จะส่ง</button>
 	        <div style="padding:10px;">คำอธิบายประกอบรูปภาพนี้</div>
 	        <div><textarea id="namebox" placeholder="พิมพ์ข้อความประกอบรูปภาพ .." style="padding:5px;color:#0056ff;font-size: 12px; height:60px;width:100%;"></textarea></div>	
-			<button id="upload" class="btn-t1">Upload Image</button>
+			<button id="upload" class="btn-t1">อัพโหลดรูปภาพของคุณ</button>
 		  </div>
 	  </center>
 	</div>
@@ -170,45 +170,44 @@
 	});
 }
 
-/*------- Retieval Process ------*/
-/*
-	document.getElementById('retrieve').onclick = function() {
-		ImgName = document.getElementById('namebox').value;
-		firebase.datebase().ref('Pictures/'+ImgName).on('value', function(snapshot){
-			document.getElementById('mying').src = snapshot.val().Link;
-		});
-	}
-*/
+
+var aCheck = 0;
+var db = firebase.firestore().collection("Momday");
+var Eid = "";
+
+var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+var sLineName = "Website";
+var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+var sEmpID = "08400";
+var sEmpBr = "OCSE";
+var sEmpName = "สุวิทย์ ชัยรุ่งปัญญา";	
+
+sessionStorage.setItem("LineID", sLineID);
+sessionStorage.setItem("LineName", sLineName);
+sessionStorage.setItem("LinePicture", sLinePicture);
+sessionStorage.setItem("EmpID", sEmpID);
+sessionStorage.setItem("EmpName", sEmpName);
+sessionStorage.setItem("EmpBR", sEmpBr);
 
 
-	var aCheck = 0;
-	var db = firebase.firestore().collection("Momday");
-	var Eid = "";
-	var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
-	var sLineName = "Website";
-	var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
-	var sEmpID = "08400";
-	var sEmpBr = "OCSE";
-	var sEmpName = "สุวิทย์ ชัยรุ่งปัญญา";	
-
-		function UpdateMomPicture() {
-		//alert(sLineID);
-		db.where('LineID','==',sLineID).get().then((snapshot)=> {
-			snapshot.forEach(doc=> {
-				aCheck = 1;
-				Eid = doc.id;
-				//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
-		  });
-		  UpdateData();
-		});
-	}
+	function UpdateMomPicture() {
+	//alert(sLineID);
+	db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+		snapshot.forEach(doc=> {
+			aCheck = 1;
+			Eid = doc.id;
+			//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
+	  });
+	  UpdateData();
+	});
+}
 
 
 
 	function UpdateData() {
 	    NewDate();
 	    var DateTimeStamp = Math.round(Date.now() / 1000);
-	    //alert(aCheck);
+	    alert(aCheck);
 	    if(aCheck==1) {
 	      db.doc(Eid).update({
 	        PostPicture : ImgUrl, 
@@ -218,12 +217,12 @@
 	      });
 	    } else {
 	      db.add({
-	        LineID : sLineID,
-	        LineName : sLineName,
-	        LinePicture : sLinePicture,
-	        empBr : sEmpBr,
-	        empID : sEmpID,
-	        empName : sEmpName,   
+	        LineID : sessionStorage.getItem("LineID"),
+	        LineName : sessionStorage.getItem("LineName"),
+	        LinePicture : sessionStorage.getItem("LinePicture"),
+	        empID : sessionStorage.getItem("EmpID"),
+	        empBr : sessionStorage.getItem("EmpName"),
+	        empName : sessionStorage.getItem("EmpBR"),   
 	        PostPicture : ImgUrl, 
 	        PostMemo : PostMemo,
 	        PostDate : dateString,
