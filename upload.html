@@ -157,7 +157,6 @@
 		function() {
 			uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
 				ImgUrl = url;
-				PostMemo = document.getElementById('namebox').value;
 				firebase.database().ref('Pictures/'+ImgName).set({
 					Name: ImgName,
 					Link: ImgUrl
@@ -198,7 +197,6 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 		snapshot.forEach(doc=> {
 			aCheck = 1;
 			Eid = doc.id;
-				alert(PostMemo);
 			//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
 	  });
 	  UpdateData();
@@ -210,11 +208,13 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	function UpdateData() {
 	    NewDate();
 	    var DateTimeStamp = Math.round(Date.now() / 1000);
+		vas sPostMemo = document.getElementById('namebox').value;
+		alert(PostMemo);
 	    //alert(aCheck);
 	    if(aCheck==1) {
 	      db.doc(Eid).update({
 	        PostPicture : ImgUrl, 
-	        PostMemo : PostMemo,
+	        PostMemo : sPostMemo,
 	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
 	      });
