@@ -177,8 +177,8 @@ alert(sessionStorage.getItem("EmpName"));
 
 
 var aCheck = 0;
-var db = firebase.firestore().collection("Momday");
 var Eid = "";
+var db = firebase.firestore().collection("Momday");
 
 
 /*
@@ -203,7 +203,7 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 		snapshot.forEach(doc=> {
 			aCheck = 1;
 			Eid = doc.id;
-			//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
+			alert("มีข้อมูลอยู่แล้ว ="+ Eid);
 	  });
 	  UpdateData();
 	});
@@ -215,8 +215,8 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	    NewDate();
 	    var DateTimeStamp = Math.round(Date.now() / 1000);
 		var sPostMemo = document.getElementById('namebox').value;
-		alert(PostMemo);
-	    //alert(aCheck);
+		//alert(PostMemo);
+	    alert(aCheck);
 	    if(aCheck==1) {
 	      db.doc(Eid).update({
 	        PostPicture : ImgUrl, 
