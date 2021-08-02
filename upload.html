@@ -217,6 +217,21 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 		var sPostMemo = document.getElementById('namebox').value;
 		//alert(PostMemo);
 	    alert(aCheck);
+
+	      db.add({
+	        LineID : sessionStorage.getItem("LineID"),
+	        //LineName : sessionStorage.getItem("LineName"),
+	        //LinePicture : sessionStorage.getItem("LinePicture"),
+	        //empID : sessionStorage.getItem("EmpID"),
+	        //empBr : sessionStorage.getItem("EmpBR"),
+	        //empName : sessionStorage.getItem("EmpName"),  
+	        //PostPicture : ImgUrl, 
+	        //PostMemo : PostMemo,
+	        //PostDate : dateString,
+	        PostTimeStamp : DateTimeStamp
+	      }); 
+
+/*
 	    if(aCheck==1) {
 	      db.doc(Eid).update({
 	        PostPicture : ImgUrl, 
@@ -240,6 +255,7 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	      });       
 	    alert("NEW");
 	    }
+*/
 	    location.href = "showpicture.html";
 	}
 
