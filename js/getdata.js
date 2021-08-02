@@ -45,13 +45,13 @@ async function getUserProfile() {
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
-	alert("111"+sessionStorage.getItem("LineID"));
+	//alert("111"+sessionStorage.getItem("LineID"));
 	FindID(profile.userId);
 }
 
 
 function FindID(gLineID) {
-	alert("222"+sessionStorage.getItem("LineID"));
+	//alert("222"+sessionStorage.getItem("LineID"));
     db.where('lineID','==',gLineID).get().then((snapshot)=> {
       	snapshot.forEach(doc=> {
         	vstatusconfirm = doc.data().statusconfirm;
@@ -78,7 +78,7 @@ function FindID(gLineID) {
 	        //console.log("Document data:", doc[0].data());
 	    } else {
 			//alert("ยังไม่มีข้อมูล");
-			alert("333"+sessionStorage.getItem("LineID"));
+			//alert("333"+sessionStorage.getItem("LineID"));
 	        console.log("No such document!");
 	        window.location = "adddata.html";
 			//SaveProfile();
