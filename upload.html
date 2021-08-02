@@ -224,12 +224,12 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
 	      });
-	    //alert("OLD");
+	    alert("OLD");
 	    } else {
 	      db.add({
 	        LineID : sessionStorage.getItem("LineID"),
-	        LineName : sessionStorage.getItem("LineName"),
-	        LinePicture : sessionStorage.getItem("LinePicture"),
+	        //LineName : sessionStorage.getItem("LineName"),
+	        //LinePicture : sessionStorage.getItem("LinePicture"),
 	        //empID : sessionStorage.getItem("EmpID"),
 	        //empBr : sessionStorage.getItem("EmpBR"),
 	        //empName : sessionStorage.getItem("EmpName"),  
@@ -238,7 +238,7 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
 	      });       
-	    //alert("NEW");
+	    alert("NEW");
 	    }
 	    location.href = "showpicture.html";
 	}
