@@ -174,13 +174,13 @@
 var aCheck = 0;
 var db = firebase.firestore().collection("Momday");
 var Eid = "";
-
+/*
 var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
 var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
 var sEmpID = "08400";
-var sEmpBr = "OCSE";
 var sEmpName = "สุวิทย์ ชัยรุ่งปัญญา";	
+var sEmpBr = "OCSE";
 
 sessionStorage.setItem("LineID", sLineID);
 sessionStorage.setItem("LineName", sLineName);
@@ -188,7 +188,7 @@ sessionStorage.setItem("LinePicture", sLinePicture);
 sessionStorage.setItem("EmpID", sEmpID);
 sessionStorage.setItem("EmpName", sEmpName);
 sessionStorage.setItem("EmpBR", sEmpBr);
-
+*/
 
 	function UpdateMomPicture() {
 	//alert(sLineID);
@@ -207,7 +207,7 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	function UpdateData() {
 	    NewDate();
 	    var DateTimeStamp = Math.round(Date.now() / 1000);
-	    alert(aCheck);
+	    //alert(aCheck);
 	    if(aCheck==1) {
 	      db.doc(Eid).update({
 	        PostPicture : ImgUrl, 
@@ -215,22 +215,25 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
 	      });
+	    //alert("OLD");
 	    } else {
 	      db.add({
 	        LineID : sessionStorage.getItem("LineID"),
 	        LineName : sessionStorage.getItem("LineName"),
 	        LinePicture : sessionStorage.getItem("LinePicture"),
 	        empID : sessionStorage.getItem("EmpID"),
-	        empBr : sessionStorage.getItem("EmpName"),
-	        empName : sessionStorage.getItem("EmpBR"),   
+	        empBr : sessionStorage.getItem("EmpBR"),
+	        empName : sessionStorage.getItem("EmpName"),  
+	      	/*
+	        */ 
 	        PostPicture : ImgUrl, 
 	        PostMemo : PostMemo,
 	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
 	      });       
+	    //alert("NEW");
 	    }
 	    location.href = "showpicture.html";
-
 	}
 
 
