@@ -26,7 +26,8 @@
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
   <style>
-	 .img { height: 200px;width:200px; border:2px solid #f68b1f; border-radius: 10px;}
+	 /*.img { height: 200px;width:200px; border:2px solid #f68b1f; border-radius: 10px;}*/
+	 .img { width:300px; border-radius: 10px;}
   </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -66,7 +67,7 @@
     <div id="PhotoEdit" class="section-title" data-aos="fade-up" style="margin-top:80px;color:#0056ff;display: none;">
       <center>
 	      <div style="font-size: 15px;font-weight: 600; ">รูปที่คุณส่งประกวด</div>
-	      <div style="color:#ccc;padding:5px 30px;font-size:12px;width:390px;margin-left: auto; margin-right: auto;">
+	      <div style="color:#777;padding:5px 30px;font-size:9px;width:390px;margin-left: auto; margin-right: auto;">
 	        <div style="padding:10px;">เลือกรูปภาพที่จะส่งประกวด</div>
 	        <img id="mying" class="img">
 	        <div style="padding:10px;">คำอธิบายประกอบรูปภาพนี้</div>
@@ -87,6 +88,7 @@
 		<div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">โหลดภาพเลย</div>
 	  </center>
 	</div>
+	<div class="clr" style="height: 20px;"></div>
 
   </div>
 </div>
@@ -97,7 +99,6 @@
 	var aCheck = 0;
 	var Eid = "";
 	var sPostDate = "";
-
 /*
 	var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 	var sLineName = "Website";
@@ -107,7 +108,6 @@
 	sessionStorage.setItem("LineName", sLineName);
 	sessionStorage.setItem("LinePicture", sLinePicture);
 */
-
 
 	var firebaseConfig = {
 		apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
