@@ -50,6 +50,7 @@ async function getUserProfile() {
 
 
 function FindID(gLineID) {
+	alert(sessionStorage.getItem("LineID"));
     db.where('lineID','==',gLineID).get().then((snapshot)=> {
       	snapshot.forEach(doc=> {
         	vstatusconfirm = doc.data().statusconfirm;
