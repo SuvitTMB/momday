@@ -84,7 +84,7 @@
 <!------- FIREBASE LIBRARIES ------>
 <script id="ManiScript">
 /*------- VARIABLES ------*/
-	var ImaName, ImgUrl;
+	var ImgName, ImgUrl;
 	var files = [];
 	var reader;
 	var PostMemo="";
@@ -157,6 +157,7 @@
 		function() {
 			uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
 				ImgUrl = url;
+				PostMemo = document.getElementById('namebox').value;
 				firebase.database().ref('Pictures/'+ImgName).set({
 					Name: ImgName,
 					Link: ImgUrl
@@ -174,6 +175,7 @@
 var aCheck = 0;
 var db = firebase.firestore().collection("Momday");
 var Eid = "";
+
 /*
 var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 var sLineName = "Website";
@@ -196,6 +198,7 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 		snapshot.forEach(doc=> {
 			aCheck = 1;
 			Eid = doc.id;
+				alert(PostMemo);
 			//alert("มีข้อมูลอยู่แล้ว ="+ Eid);
 	  });
 	  UpdateData();
@@ -224,8 +227,6 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	        empID : sessionStorage.getItem("EmpID"),
 	        empBr : sessionStorage.getItem("EmpBR"),
 	        empName : sessionStorage.getItem("EmpName"),  
-	      	/*
-	        */ 
 	        PostPicture : ImgUrl, 
 	        PostMemo : PostMemo,
 	        PostDate : dateString,
