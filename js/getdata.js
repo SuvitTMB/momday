@@ -45,6 +45,7 @@ async function getUserProfile() {
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
+	alert(sessionStorage.getItem("LineID"));
 	FindID(profile.userId);
 }
 
