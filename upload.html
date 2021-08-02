@@ -130,7 +130,7 @@ alert(sessionStorage.getItem("LineID"));
 /*------- UPLOAD PROCESS ------*/
 	document.getElementById('upload').onclick = function(){
 		//alert("Check="+document.getElementById("mying").src);
-		ImgName = sEmpID;
+		ImgName = sessionStorage.getItem("EmpID");
 		PostMemo = document.getElementById('namebox').value;
 		if(document.getElementById("mying").src=="") {
 			alert("กรุณา Upload รูปภาพที่จะส่งประกวด");
