@@ -18,7 +18,8 @@ var db = firebase.firestore().collection("CheckProfile");
 
 
 async function main() {
-	await liff.init({ liffId: "1653903646-Bae2vp5e" });
+	//await liff.init({ liffId: "1653903646-Bae2vp5e" });
+	await liff.init({ liffId: "1655966947-rope1zn6" });
 	document.getElementById("isLoggedIn").append(liff.isLoggedIn());
 	if(liff.isLoggedIn()) {
 		getUserProfile();
