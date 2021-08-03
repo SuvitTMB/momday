@@ -21,10 +21,12 @@
   <link href='css/w3.css' rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
   <script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <style type="text/css">
+      .imgLDP1  { max-width: 100%; height: auto; }
+  </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
@@ -40,19 +42,16 @@
 
 <div class="container-max">
   <center>
-    <div style="margin-top:70px;"><img src="./img/momCard-7.jpg" class="imgLDP"></div>
+    <div style="margin-top:50px;"><img src="./img/DisplayLDP.jpg" class="imgLDP1"></div>
     <div id="DisplayLineName" style="padding-top:30px;font-size: 15px; color:#0056ff;font-weight: 700;"></div>
-    <div style="width:140px;margin:auto;" id="gotopage">
-    <div class="btn-t1" style="margin-top:20px;width:140px !important;" onclick="window.location.href='momday.html';">เข้าสู่เว็บไซต์</div>
+    <!--<div style="width:140px;margin:auto;" id="gotopage">-->
+    <div class="btn-t1" style="margin-top:20px;width:160px !important;" onclick="window.location.href='momday.html';">ไปบอกรักแม่กัน</div>
 
     <div class="clr" style="height:30px;"></div>
     <div style="font-size:10px;color:#555555;margin-bottom: 20px;font-weight: 700;">@LINE Retail Socitey</div>
   </center>
 </div>
 <div id="isLoggedIn" style="color:#ffffff;"></div>
-<!--
-<script src="js/sessionID.js?v=0002"></script>
--->
 <script src="js/getdata.js?v=0005"></script>
 
 <script type="text/javascript">
