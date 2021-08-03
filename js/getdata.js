@@ -18,7 +18,7 @@ var db = firebase.firestore().collection("CheckProfile");
 
 
 async function main() {
-	await liff.init({ liffId: "1653903646-Bae2vp5e" });
+	await liff.init({ liffId: "1655966947-rope1zn6" });
 	document.getElementById("isLoggedIn").append(liff.isLoggedIn());
 	if(liff.isLoggedIn()) {
 		getUserProfile();
@@ -45,7 +45,7 @@ async function getUserProfile() {
 	sessionStorage.setItem("LineID", profile.userId);
 	sessionStorage.setItem("LineName", profile.displayName);
 	sessionStorage.setItem("LinePicture", profile.pictureUrl);
-	alert("111"+sessionStorage.getItem("LineID"));
+	//alert("111"+sessionStorage.getItem("LineID"));
 	FindID(profile.userId);
 }
 
