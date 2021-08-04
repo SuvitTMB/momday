@@ -562,3 +562,13 @@ body {
 .JoinDetail:hover {
   background:#074fa1; cursor: pointer;
 }
+.ClickImg {
+  width:100%; background:#fff; color:#0056ff;padding: 4px 8px; font-size: 12px; 
+}
+.ClickImg:hover {
+  cursor: pointer; color:#000000; background:#f1f1f1; border-radius: 10px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  padding:2px;
+}
