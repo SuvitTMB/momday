@@ -30,8 +30,99 @@
       border-radius:8px;border:2px solid #f68b1f; margin:4px; padding:5px; cursor: pointer; } 
     .BoxView:hover { border:2px solid #0056ff; }
     /*.imgView { height: 102px;width:180px; border:2px solid #f68b1f; border-radius: 10px;float: left;margin-right: 5px;}*/
-  </style>
+    .list {
+        /*margin: 0px auto;
+        width: 80%;
+        box-sizing: border-box;*/
+    }
+    .list-element {
+      /*
+        width: 100%;
+        margin: 25px 0px;
+        font-family: arial;
+        border-radius: 50px;
+        padding: 10px 0px;
+        color: #2196f3;
+        font-size: 20px;
+        text-align: center;
+        box-shadow: 0px 0px 6px 0px #848484;
+        */
+        display: none;
+    }
+    /*
+    #loadmore {
+        margin: 25px auto 0px;
+        display: table;
+        border: none;
+        padding: 8px 30px;
+        font-size: 13px;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 30px;
+        background-color: #2196f3;
+    }
+    #loadmore:hover {
+      background: #f68b1f;
+    }
+    */
+    .list .list-element:nth-child(1) {
+        display: block;
+    }
+    .list .list-element:nth-child(2) {
+        display: block;
+    }
+    .list .list-element:nth-child(3) {
+        display: block;
+    }
+    .list .list-element:nth-child(4) {
+        display: block;
+    }
+    .list .list-element:nth-child(5) {
+        display: block;
+    }
+    .list .list-element:nth-child(6) {
+        display: block;
+    }
+    .list .list-element:nth-child(7) {
+        display: block;
+    }
+    .list .list-element:nth-child(8) {
+        display: block;
+    }
+    .notify {
+      position: fixed;
+      top: 50px;
+      width: 100%;
+      height: 0;
+      box-sizing: border-box;
+      color: white;
+      text-align: center;
+      background: #f68b1f;
+      overflow: hidden;
+      box-sizing: border-box;
+      -webkit-transition: all ease 0.4s;
+      -moz-transition: all ease 0.4s;
+      -ms-transition: all ease 0.4s;
+      -o-transition: all ease 0.4s;
+      transition: all ease 0.4s;
+    }
+
+    #notifyType:before {
+      display: block;
+      margin-top: 15px;
+    }
+
+    .notify.active {
+      height: 50px;
+    }
+
+    .success:before {
+      content: "มีข้อความใหม่";
+    }
+
+</style>
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -57,110 +148,38 @@
     </div>
   </nav>
 
-
-
-
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="ldp carousel-inner" role="listbox" style="height: 240px !important">
-      <div class="item active">
-        <div><img src="./img/slide/slide-1.jpg" class="ldp_img"></div>
-      </div>
-      <div class="item">
-        <a href="momsong.html"><div><img src="./img/slide/slide-2.jpg" class="ldp_img"></div></a>
-      </div>
-      <div class="item">
-        <a href="momcard.html"><div><img src="./img/slide/slide-3.jpg" class="ldp_img"></div></a>
-      </div>
-      <div class="item">
-        <a href="moncontent.html"><div><img src="./img/slide/slide-4.jpg" class="ldp_img"></div></a>
-      </div>
-      <div class="item">
-        <a href="moncontent.html"><div><img src="./img/slide/slide-5.jpg" class="ldp_img"></div></a>
-      </div>
-    </div>
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  <div style="width:100%;background: #479eff;height:50px;color:#ffffff;border-top:1px solid #ffffff;text-align: center;">
-    <div class="container-max">
-      <div class="JoinDetail">กติการการประกวด</div>
-      <div class="JoinDetail" onclick="GotoPage();">ส่งภาพเข้าประกวด</div>
-    </div>
-  </div>
-  </div>
-
-
-
-<div class="container-max">
-  <div style="margin-top:70px;text-align: center;color:#0056ff;font-weight: 600;padding-bottom: 15px;">ใครส่งภาพประกวดบ้างน้า</div>
-    <div style="background: #ffff00;width:400px; margin:auto;">
-      <div id="DisplayData"></div>
-    </div>
-<!--
-  <div id="Page21">
+  <div class="container-max">
     <center>
-      <div style="margin-top:20px;"><img src="./img/momMenu-031.png" width="200px;"></div>
-      <div style="max-width:400px;margin-left:auto; margin-right: auto; margin-top:10px;">
-        <div class="box-msgtext">
-          <div class="box-text0" onclick="DisplaySong(1)">
-            <div class="box-text2">
-              <div class="box-text3">เพลง : กล่อมแม่ (ปาน ธนพร)</div>
-              ลมโชยโรยแผ่ว นานแล้วแม่จ๋า<br>ลูกไม่ได้กลับมา นั่งชิงช้าอันเก่า<br>ชิงช้าหน้าบ้าน วันนี้มันดูเหงา<br>เฟื่องฟ้าลาต้นหล่นกราว อกเราสะท้อน
-            </div>
-          </div>
-          <div class="box-text0" onclick="DisplaySong(5)">
-            <div class="box-text2">
-              <div class="box-text3">เพลง : แม่ (Loso)</div>
-              ป่านนี้ จะเป็นอย่างไร<br>จากมาไกล แสนนาน<br>คิดถึง คิดถึงบ้าน<br>จากมาตั้งนาน เมื่อไรจะได้กลับ
-            </div>
-          </div>
-          <div class="box-text0">
-            <div class="box-text2" onclick="DisplaySong(2)">
-              <div class="box-text3">เพลง : ของขวัญวันแม่ (แดน วรเวช)</div>
-              เพิ่งรู้ว่าแม่ก้อเหงา ตอนที่ขอให้เราโทรไป<br>เพิ่งรู้ว่าแม่น้อยใจ เมื่อเราอายไม่ยอมให้กอดเรา<br>เพิ่งรู้ว่าเก็บไปคิด ว่าลูกไม่รักเหมือนเก่า<br>เพิ่งรู้ว่าแม่ก็เศร้า เมื่อเราเถียงเมื่อเราขัดใจ
-            </div>
-          </div>
-          <div class="box-text0">
-            <div class="box-text2" onclick="DisplaySong(3)">
-              <div class="box-text3">เพลง : คิดถึงพ่อ คิดถึงแม่ คิดถึงบ้าน (น้ององุ่น)</div>
-              ได้ยินหมอลำ ครวญคร่ำตามสายลมมา<br>สุดแสดเหว่ว้าเมื่อมาพักอยู่เมืองไกล<br>มองสองข้างทาง ตึกสูงบังฟ้าบังใจ<br>อกเอ๋ยอกคนบ้านไพรน้ำตาหลั่งไหลไกลบ้าน
-            </div>
-          </div>
-          <div class="box-text0" onclick="DisplaySong(4)">
-            <div class="box-text2">
-              <div class="box-text3">เพลง : จุดธูปบอกแม่ (FLAME)</div>
-              บอกตัวเองให้กลั้นน้ำตาไว้ ไม่ให้ร้อง ไม่ให้น้อยใจ<br>ใกล้ถึงวันแม่ทีไร น้ำตาจะไหลขึ้นมา<br>แม่จากลูกไปตั้งแต่เด็กน้อย มีปมติดตัวคือกำพร้า<br>พยายามเข้มแข็งเรื่อยมา แต่บางเวลาอ่อนล้าเกินไป
-            </div>
-          </div>
-
+      <div style="margin-top:50px;"><img src="./img/slide/slide-3.jpg" style="width:95%;margin-top:25px;"></div>
+      <div class="clr"></div>
+      <div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">ส่งภาพประกวด</div>
+      <div id="btn-1" class="btn-t1" onclick="window.location.href='showpicture.html';">ภาพประกวดของคุณ</div>
+      <div class="clr" style="height: 35px;"></div>
+      <div>
+        <div style="font-size: 15px;font-weight: 600; color:#f68b1f;"><u>กิจกรรมชวนกันมาบอกรักผ่านถาพถ่าย</u></div>
+        <div style="font-size: 13px; color:#0056ff;padding:10px;line-height: 1.4;">
+          เพียงถ่ายภาพความประทับใจเพื่อแทนความรู้สึกที่คุณมีต่อคุณแม่<br>
+          ในฐานะที่คุณเป็นลูก หรือในฐานะที่คุณเป็นแม่ก็ได้<br>
+          สามารถส่งภาพได้ตั้งแต่วันนี้ ถึง 20 สิงหาคม 2564<br>
+          และประกาศผลการตัดสินวันที่ 13 กันยายน 2564 นี้
         </div>
       </div>
     </center>
   </div>
--->
 
+
+<div class="container-max">
+  <div style="margin-top:50px;text-align: center;color:#000000;font-weight: 600;padding-bottom: 15px;"><u>ใครส่งภาพประกวดบ้างน้า</u></div>
+  <div style="width:100%; max-width:400px; margin:auto;">
+    <div id="DisplayData" class="list"></div>
+    <div class="clr" style="height: 25px;"></div>
+    <center><div id="loadmore" class="btn-t1">Load More...</div></center>
   </div>
   <div class="clr"></div>
 
 
-  <div style="margin-top:70px;text-align: center;">กติกาการประกวด</div>
-
+  <div style="margin-top:50px;text-align: center;color:#000000;font-weight: 600;padding-bottom: 15px;"><u>กติกาการประกวด</u></div>
+      <div style="text-align: center;"><img src="./img/slide/slide-5.jpg" style="width:95%;"></div>
   <div>
 
   <div class="clr" style="height:20px;"></div>
@@ -180,11 +199,8 @@
     </div>
   </div>
 </div>
-<!--
 <script src="./js/config.js"></script>
--->
-<script src="./js/config.js"></script>
-<script  src="./js/momphoto.js?V=0003"></script>
+<script  src="./js/momphoto.js?V=0004"></script>
 
 
 </body>

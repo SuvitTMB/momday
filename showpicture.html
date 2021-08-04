@@ -132,7 +132,6 @@
 	var str = "";
 
 
-
 /*
 	var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 	var sLineName = "Website";
@@ -160,10 +159,12 @@ alert(sessionStorage.getItem("EmpName"));
 	var db = firebase.firestore().collection("Momday");
 
 	//SearchID();
-	alert(sessionStorage.getItem("ImgUrl"));
-	alert(sessionStorage.getItem("PostMemo"));
+	//alert(sessionStorage.getItem("ImgUrl"));
+	//alert(sessionStorage.getItem("PostMemo"));
 
-	if(sessionStorage.getItem("ImgUrl")!=null) {
+
+
+	if(sessionStorage.getItem("ImgUrl")!=null && sessionStorage.getItem("ImgUrl")!="") {
 		NewDate();
 		CallTimeStamp();
 		//alert("Session = "+sessionStorage.getItem("ImgUrl"));
@@ -190,11 +191,26 @@ alert(sessionStorage.getItem("EmpName"));
 
 	function SearchID() { 
 		//alert("Search : "+sessionStorage.getItem("LineID"));
-		db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+		db.where('LineID','==',sessionStorage.getItem("LineID"))
+		//.orderBy('PostTimeStamp','desc')
+		.get().then((snapshot)=> {
 		  snapshot.forEach(doc=>{
 		    showData(doc);
 		  });
 		});
+
+		/*
+		db1.collection('Momday')
+		.where('LineID','==',sessionStorage.getItem("LineID"))
+		.orderBy('PostTimeStamp','desc')
+		.limit(200).get().then( snapshot => {
+		  snapshot.forEach(doc=> {
+		    ShowChat(doc);
+		  });
+		})
+
+		*/
+
         //CheckDiv();
 	}
 
@@ -357,9 +373,9 @@ db.collection("cities").doc("DC").delete().then(() => {
 	}
 
 
+
 </script>
 <script src="./js/config.js"></script>
-
 
 
 	</body>
