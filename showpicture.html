@@ -12,6 +12,8 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
   <!-- End Google Tag Manager -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -19,12 +21,10 @@
   <link href='css/style.css' rel="stylesheet" type="text/css">
   <link href='css/button.css' rel="stylesheet" type="text/css">
   <link href='css/w3.css' rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <!--<script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>-->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
   <style>
 	 /*.img { height: 200px;width:200px; border:2px solid #f68b1f; border-radius: 10px;}*/
 	 .img { width:300px; border-radius: 10px;}
@@ -57,26 +57,52 @@
 
 
 <div class="container-max">
-  <div class="container" id="CheckProfile">
-    <div id="loading" class="section-title" data-aos="fade-up" style="margin-top:80px;">
+
+
+
+
+  <div class="container-max" id="CheckProfile">
+    <!--<div id="loading" class="section-title" data-aos="fade-up" style="margin-top:80px;">-->
       <center>
-      	<img src="./img/loading.gif" style="width:390px;margin:35px 0;">
+    	<div style="margin-top:50px;"><img src="./img/slide/slide-3.jpg" style="width:95%;margin-top:25px;"></div>
+      	<!--<img src="./img/loading.gif" style="width:390px;margin:35px 0;">-->
+		<div class="clr"></div>
+		<div id="btn-1" class="btn-t1" onclick="window.location.href='momphoto.html';">กลับหน้าประกวดภาพ</div>
+		<div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">ส่งภาพประกวด</div>
       </center>
     </div>
 
-    <div id="PhotoEdit" class="section-title" data-aos="fade-up" style="margin-top:80px;color:#0056ff;display: none;">
+    <div id="PhotoEdit" class="section-title" data-aos="fade-up" style="margin-top:30px;color:#0056ff;display: none;">
       <center>
-	      <div style="font-size: 15px;font-weight: 600; ">รูปที่คุณส่งประกวด</div>
-	      <div style="color:#777;padding:5px 30px;font-size:9px;width:390px;margin-left: auto; margin-right: auto;">
-	        <div style="padding:10px;">เลือกรูปภาพที่จะส่งประกวด</div>
-	        <img id="mying" class="img">
-	        <div style="padding:10px;">คำอธิบายประกอบรูปภาพนี้</div>
-	        <div id="namebox" style="color:#0056ff;border:1px solid #f68b1f;background: #fce5b6;padding: 5px;border-radius: 10px;"></div>	
-	        <div id="DisplayDate" style="padding:15px; font-size: 11px; color:#f68b1f;"></div>
-	        <div class="clr"></div>
-      		<div id="btn-1" class="btn-t1" onclick="window.location.href='momday.html';">หน้าแรก</div>
-      		<div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">แก้ไขภาพใหม่</div>
-		  </div>
+		  <main id="main">
+		    <section id="team" class="team section-bg" style="background-color: #ffffff;min-height:450px;">
+		      <div class="container">
+		      	<!--
+		      <div style="padding:10px;color:#0056ff;"><center><b>แสดงข้อมูลการเข้าดูเว็บ Cutover</b> | <span class="LoadCSV" onclick="export2csv()">Download CSV File</span></center></div> -->
+		      <div style="text-align: left; font-weight: 700; color:#000000; padding:10px 0;">ข้อมูลการส่งภาพประกวดของคุณ</div>
+		      <table class="table table-bordered" id="tbresult" style="padding:2px;">
+		        <tr>
+		          <th width="5%">No</th>
+		          <th width="65%">ข้อความของภาพ</th>
+		          <!--<th width="48%">วันที่ส่งประกวด</th>-->
+		          <th width="30%">Status</th>
+		        </tr>
+		      </table>
+		      	<div class="clr" style="height: 20px;"></div>
+				<center>
+					<div class="text-buttom">@LINE Retail Socitey</div>
+				</center>
+		      	<!--
+				<div id="btn-1" class="btn-t1" onclick="window.location.href='momday.html';">กลับหน้าแรก</div>
+				<div id="btn-1" class="btn-t1" onclick="window.location.href='upload.html';">ส่งภาพประกวด</div>
+				-->
+		      </div>
+		    </section>
+		  </main>
+
+<!--
+      	<div id="ShowAll"></div>
+-->
 	  </center>
 	</div>
     <div id="PhotoNew" class="section-title" data-aos="fade-up" style="margin-top:80px;color:#0056ff;display: none;">
@@ -96,9 +122,17 @@
 
 
 <script type="text/javascript">	
-	var aCheck = 0;
-	var Eid = "";
-	var sPostDate = "";
+	var aCheck = 1;
+	var cleararray = "";
+	//var Eid = "";
+	//var sPostDate = "";
+	var DateTimeStamp = 0;
+	var dateString = "";
+	var i = 0;
+	var str = "";
+
+
+
 /*
 	var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
 	var sLineName = "Website";
@@ -107,9 +141,9 @@
 	sessionStorage.setItem("LineID", sLineID);
 	sessionStorage.setItem("LineName", sLineName);
 	sessionStorage.setItem("LinePicture", sLinePicture);
-*/
 alert(sessionStorage.getItem("LineID"));
 alert(sessionStorage.getItem("EmpName"));
+*/
 
 	var firebaseConfig = {
 		apiKey: "AIzaSyDfTJJ425U4OY0xac6jdhtSxDeuJ-OF-lE",
@@ -125,39 +159,204 @@ alert(sessionStorage.getItem("EmpName"));
 	//firebase.analytics();
 	var db = firebase.firestore().collection("Momday");
 
-	SearchID();
+	//SearchID();
 
-
-	function SearchID() {
-		db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
-			snapshot.forEach(doc=> {
-				Eid = doc.id;
-				sPostPicture = doc.data().PostPicture;
-				sPostMemo = doc.data().PostMemo;
-				sPostDate = doc.data().PostDate;
-		  });
-		  ShowData();
-		});
+	if(sessionStorage.getItem("ImgUrl")!="") {
+		NewDate();
+		CallTimeStamp();
+		//alert("Session = "+sessionStorage.getItem("ImgUrl"));
+	      db.add({
+	        LineID : sessionStorage.getItem("LineID"),
+	        LineName : sessionStorage.getItem("LineName"),
+	        LinePicture : sessionStorage.getItem("LinePicture"),
+	        empID : sessionStorage.getItem("EmpID"),
+	        empBr : sessionStorage.getItem("EmpBR"),
+	        empName : sessionStorage.getItem("EmpName"), 
+	        PostPicture : sessionStorage.getItem("ImgUrl"), 
+	        PostMemo : sessionStorage.getItem("PostMemo"),
+	        PostDate : dateString,
+	        PostTimeStamp : DateTimeStamp
+	      });
+	      sessionStorage.setItem("ImgUrl", "");
+	      sessionStorage.setItem("PostMemo", "");
 	}
 
+
+
+	var table = document.querySelector('#tbresult');
+	SearchID();
+
+	function SearchID() { 
+		//alert("Search : "+sessionStorage.getItem("LineID"));
+		db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+		  snapshot.forEach(doc=>{
+		    showData(doc);
+		  });
+		});
+        //CheckDiv();
+	}
+
+
+	function showData(doc) {
+	  i = i+1;
+	  var row = table.insertRow(-1);
+	  var cell1 = row.insertCell(0);
+	  var cell2 = row.insertCell(1);
+	  var cell3 = row.insertCell(2);
+	  //var cell4 = row.insertCell(3);
+	  cell1.innerHTML = i;
+	  cell2.innerHTML = doc.data().PostMemo;
+	  let btn=document.createElement('button');
+	  btn.textContent = "ลบ";
+	  btn.setAttribute('class','btn-t8');
+	  btn.setAttribute('data-id',doc.id);
+	  cell3.appendChild(btn);
+
+	  btn.addEventListener('click',(e)=>{
+	  	//alert(doc.(id));
+	  	console.log(e.target.getAttribute('data-id'));
+	  	let id=e.target.getAttribute('data-id');
+	  	db.doc(id).delete().then(function() {
+	  		console.log("Delete successfully");
+			$("#tbresult").val(cleararray);
+			$("#tbresult").html(cleararray);
+			location.href = "showpicture.html";
+	  		//SearchID();
+	  	})
+	  	.catch(function(error) {
+	  		console.log("Delete failed: "+ error.Messages)
+	  	})
+	  	alert("ทำการลบข้อมูลของท่านแล้ว");
+	  	//location.href = "showpicture.html";
+	  });
+      CheckDiv();
+	  //location.href = "showpicture.html";
+	}
+	      //CheckDiv();
+
+		//alert(sessionStorage.getItem("LineID"));
+/*
+		db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+		  $("#ShowAll").val(cleararray);
+		  snapshot.forEach(doc=>{
+
+
+	    aCheck = 1;
+		i = i+1;
+		str+='<div class="boxshow">';
+		str+='<img src="'+doc.data().PostPicture+'" style="width:100%; height:204px; border-radius: 10px;">';
+		str+='<div class="Centered-mom">'+ doc.data().PostMemo +'<br>';
+		str+='<div id="btn" class="btn-t2" onclick="RemoveDataID(\'' + doc.id + '\')" style="font-size:11px;">ยกเลิกภาพนี้</div>';
+		str+='</div></div>';
+
+		     //DisplayData(doc);
+		    //console.log(doc.data());
+		  });
+		$("#ShowAll").html(str);
+		});
+	}
+*/
 
 	//function CheckData() {
 	//	UpdateMomPicture();
 	//}
+	var Eid = [];
+	function DisplayData(doc) {
+	    aCheck = 1;
+		i = i+1;
+		str+='<div class="boxshow">';
+		str+='<img src="'+doc.data().PostPicture+'" style="width:100%; height:204px; border-radius: 10px;">';
+		str+='<div class="Centered-mom">'+ doc.data().PostMemo +'<br>';
+		str+='<div id="btn" class="btn-t2" onclick="RemoveDataID(' + Eid[i] + ')" style="font-size:11px;">ยกเลิกภาพนี้</div>';
+		//str+='<div id="btn" class="btn-t2" onclick="RemoveDataID(\'' + doc.id + '\')" style="font-size:11px;">ยกเลิกภาพนี้</div>';
+		//str+='<div id="btn" class="btn-t2" onclick="RemoveDataID(\'' + doc.data().PostMemo + '\')" style="font-size:11px;">ยกเลิกภาพนี้</div>';
+		str+='</div></div>';
+	}
 
-	function ShowData() {
-		document.getElementById('loading').style.display='none';
-		if(Eid==0) {
-  			document.getElementById('PhotoNew').style.display='block';
+
+	//alert("Check = "+aCheck);
+	function CheckDiv() {
+		//alert(i);
+		if(i>0) {
+			//alert("case=1 :"+i);
+			document.getElementById('PhotoEdit').style.display='block';
+		    //document.getElementById('loading').style.display='none';
 		} else {
-  			document.getElementById('PhotoEdit').style.display='block';
-			document.getElementById("mying").src = sPostPicture;
-			$("#namebox").html(sPostMemo);
-			$("#DisplayDate").html("โหลดภาพเมื่อวันที่ "+sPostDate);
+			//alert("case=0 :"+i);
+			document.getElementById('PhotoNew').style.display='block';
+		    //document.getElementById('loading').style.display='none';
 		}
 	}
 
+
+
+/*
+db.collection("cities").doc("DC").delete().then(() => {
+    console.log("Document successfully deleted!");
+}).catch((error) => {
+    console.error("Error removing document: ", error);
+});
+*/
+	function RemoveDataID(n) {
+		//$("#ShowAll").val(cleararray);
+		//$("#ShowAll").html(cleararray);
+		alert( Eid[2] );
+
+
+
+		//var docRef = Firebase.firestore().collection("Momday").doc("bsYNIwEkjP237Ela6fUp").collection("Messages");
+		var docRef = firebase.firestore().collection("Momday").doc("mjLxWy4yxD54IRzum1p7");
+		alert(docRef);
+		// delete the document
+		//docRef.doc("lKjNIwEkjP537Ela6fhJ").delete();
+		//db.n.delete();
+
+		//console.log(n);
+		if(i==1) {
+			//db.doc(n).delete();
+		} else {
+			//db.doc(n).delete();
+		}
+		alert("ลบข้อมูลเรียบร้อยแล้ว = "+n);
+		location.href = "showpicture.html";
+		//SearchID();
+		//alert("หมายเลข : "+gid);
+	}
+
+	function CallTimeStamp() {
+	    DateTimeStamp = Math.round(Date.now() / 1000);
+	}
+
+
+	function NewDate() {
+	  var today = new Date();
+	  var day = today.getDate() + "";
+	  var month = (today.getMonth() + 1) + "";
+	  var year = today.getFullYear() + "";
+	  var hour = today.getHours() + "";
+	  var minutes = today.getMinutes() + "";
+	  var seconds = today.getSeconds() + "";
+	  var ampm = hour >= 12 ? 'PM' : 'AM';
+	  day = checkZero(day);
+	  month = checkZero(month);
+	  year = checkZero(year);
+	  hour = checkZero(hour);
+	  minutes = checkZero(minutes);
+	  seconds = checkZero(seconds);
+	  dateString = day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds +" "+ ampm;
+	}
+
+
+	function checkZero(data){
+	  if(data.length == 1){
+	    data = "0" + data;
+	  }
+	  return data;
+	}
+
+
 </script>
+<script src="./js/config.js"></script>
 
 
 

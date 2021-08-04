@@ -22,12 +22,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+  <style>
+    .BoxView { width:185px; height: 150px;  border-radius: 10px;float: left;
+      border-radius:8px;border:2px solid #f68b1f; margin:4px; padding:5px; cursor: pointer; } 
+    .BoxView:hover { border:2px solid #0056ff; }
+    /*.imgView { height: 102px;width:180px; border:2px solid #f68b1f; border-radius: 10px;float: left;margin-right: 5px;}*/
+  </style>
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
@@ -89,8 +99,8 @@
     </a>
   <div style="width:100%;background: #479eff;height:50px;color:#ffffff;border-top:1px solid #ffffff;text-align: center;">
     <div class="container-max">
-      <div style="width:49%;float: left;padding:14px;">กติการการประกวด</div>
-      <div style="width:49%;float: left;padding:14px;" onclick="GotoPage();">ส่งภาพเข้าประกวด</div>
+      <div class="JoinDetail">กติการการประกวด</div>
+      <div class="JoinDetail" onclick="GotoPage();">ส่งภาพเข้าประกวด</div>
     </div>
   </div>
   </div>
@@ -98,7 +108,10 @@
 
 
 <div class="container-max">
-  <div style="margin-top:70px;text-align: center;"><img src="./img/momMenu-03.png" width="340px;"></div>
+  <div style="margin-top:70px;text-align: center;color:#0056ff;font-weight: 600;padding-bottom: 15px;">ใครส่งภาพประกวดบ้างน้า</div>
+    <div style="background: #ffff00;width:400px; margin:auto;">
+      <div id="DisplayData"></div>
+    </div>
 <!--
   <div id="Page21">
     <center>
@@ -143,6 +156,12 @@
 -->
 
   </div>
+  <div class="clr"></div>
+
+
+  <div style="margin-top:70px;text-align: center;">กติกาการประกวด</div>
+
+  <div>
 
   <div class="clr" style="height:20px;"></div>
   <center>
@@ -155,7 +174,7 @@
 <div id="id01" class="w3-modal w3-animate-opacity">
   <div class="w3-modal-content w3-card-4">
     <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
-        <div id="DisplayYoutube"></div>
+        <div id="DisplayPhoto"></div>
         <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
       </center>
     </div>
@@ -164,6 +183,7 @@
 <!--
 <script src="./js/config.js"></script>
 -->
+<script src="./js/config.js"></script>
 <script  src="./js/momphoto.js?V=0003"></script>
 
 

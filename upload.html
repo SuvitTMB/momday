@@ -23,12 +23,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 		<!------- FIREBASE LIBRARIES ------>
+  <!--<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>-->
   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-storage.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script> 
 
-  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <!--<script src="https://static.line-scdn.net/liff/edge/versions/2.8.1/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>-->
 
 
   <style>
@@ -83,12 +86,35 @@
 
 <!------- FIREBASE LIBRARIES ------>
 <script id="ManiScript">
-/*------- VARIABLES ------*/
-	var ImgName, ImgUrl;
-	var files = [];
-	var reader;
-	var PostMemo="";
 
+
+/*
+var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+var sLineName = "Website";
+var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+var sEmpID = "08400";
+var sEmpName = "สุวิทย์ ชัยรุ่งปัญญา";	
+var sEmpBr = "OCSE";
+
+sessionStorage.setItem("LineID", sLineID);
+sessionStorage.setItem("LineName", sLineName);
+sessionStorage.setItem("LinePicture", sLinePicture);
+sessionStorage.setItem("EmpID", sEmpID);
+sessionStorage.setItem("EmpName", sEmpName);
+sessionStorage.setItem("EmpBR", sEmpBr);
+
+alert(sessionStorage.getItem("LineID"));
+*/
+
+
+/*------- VARIABLES ------*/
+var ImgName, ImgUrl;
+var files = [];
+var reader;
+var PostMemo="";
+var aCheck = 0;
+var Eid = "";
+var DateTimeStamp = 0;
 
 	//var sEmpID = "08400";
 
@@ -108,12 +134,14 @@
 	  measurementId: "G-9SKTRHHSW9"
 	};
 	// Initialize Firebase
-	firebase.initializeApp(firebaseConfig);
-
+	//var db = firebase.firestore().collection("Momday");
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    //const db = firebase.firestore();
 //alert(sessionStorage.getItem("LineID")+"======"+sessionStorage.getItem("EmpName"));	
 
-alert(sessionStorage.getItem("LineID"));
-alert(sessionStorage.getItem("EmpName"));
+//alert(sessionStorage.getItem("LineID"));
+//alert(sessionStorage.getItem("EmpName"));
 
 /*------- SELECT PROCESS ------*/
 	document.getElementById("select").onclick = function(e){
@@ -133,7 +161,9 @@ alert(sessionStorage.getItem("EmpName"));
 /*------- UPLOAD PROCESS ------*/
 	document.getElementById('upload').onclick = function(){
 		//alert("Check="+document.getElementById("mying").src);
-		ImgName = sessionStorage.getItem("EmpID");
+		CallTimeStamp();
+		ImgName = sessionStorage.getItem("EmpID")+"-"+DateTimeStamp;
+		//alert(ImgName);
 		PostMemo = document.getElementById('namebox').value;
 		if(document.getElementById("mying").src=="") {
 			alert("กรุณา Upload รูปภาพที่จะส่งประกวด");
@@ -143,6 +173,7 @@ alert(sessionStorage.getItem("EmpName"));
 			alert("กรุณาพิมพ์ข้อความก่อนทำการบันทึกรายการ");
 			exit();
 		}
+		//CallTimeStamp();+"-"+DateTimeStamp
 		//ImgName = document.getElementById('namebox').value;
 	    document.getElementById('Page-1').style.display='none';
 	    document.getElementById('Page-2').style.display='block';
@@ -151,6 +182,9 @@ alert(sessionStorage.getItem("EmpName"));
 		uploadTask.on('state_changed', function(snapshot){
 			var progress = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
 			//document.getElementById('UpProgress').innerHTML = 'upload '+progress+'%';
+			//UpdateMomPicture();
+			//UpdateMomPicture();
+
 		},
 
 /*------- Error Handing ------*/
@@ -159,78 +193,72 @@ alert(sessionStorage.getItem("EmpName"));
 		},
 
 /*------- Submit image to database ------*/
+
 		function() {
 			uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
 				ImgUrl = url;
+				sessionStorage.setItem("ImgUrl", url);
+				sessionStorage.setItem("PostMemo", PostMemo);
 				firebase.database().ref('Pictures/'+ImgName).set({
 					Name: ImgName,
 					Link: ImgUrl
 				});
 			//alert('image added successfully = '+ ImgUrl);
-			//location.href = "savePicture.html?PostPicture="+ImgUrl+"&PostMemo="+PostMemo;
-			UpdateMomPicture();
+			location.href = "showpicture.html";
+			//location.href = "showpicture.html?PostPicture="+ImgUrl+"&PostMemo="+PostMemo;
+			//UpdateData();
+			//UpdateMomPicture();
 			}
 		);
 
+/*
+		function() {
+			uploadTask.snapshot.ref.getDownloadURL().then(function(url) {
+				ImgUrl = url;
+		  alert(url);
+
+				//firebase.database().ref('Pictures/'+ImgName).set({
+				//	Name: ImgName,
+				//	Link: ImgUrl
+				//});
+			//alert('image added successfully = '+ ImgUrl);
+			//location.href = "savePicture.html?PostPicture="+ImgUrl+"&PostMemo="+PostMemo;
+			}
+		);
+		//UpdateMomPicture();
+		UpdateData();
+*/
 	});
 }
 
 
-var aCheck = 0;
-var Eid = "";
-var db = firebase.firestore().collection("Momday");
+
 
 
 /*
-var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
-var sLineName = "Website";
-var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
-var sEmpID = "08400";
-var sEmpName = "สุวิทย์ ชัยรุ่งปัญญา";	
-var sEmpBr = "OCSE";
-
-sessionStorage.setItem("LineID", sLineID);
-sessionStorage.setItem("LineName", sLineName);
-sessionStorage.setItem("LinePicture", sLinePicture);
-sessionStorage.setItem("EmpID", sEmpID);
-sessionStorage.setItem("EmpName", sEmpName);
-sessionStorage.setItem("EmpBR", sEmpBr);
-*/
-
 	function UpdateMomPicture() {
-	//alert(sLineID);
-	db.where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
-		snapshot.forEach(doc=> {
-			aCheck = 1;
-			Eid = doc.id;
-			alert("มีข้อมูลอยู่แล้ว ="+ Eid);
-	  });
-	  UpdateData();
-	});
-}
+		//alert(sessionStorage.getItem("LineID"));
+		db.collection("Momday").where('LineID','==',sessionStorage.getItem("LineID")).get().then((snapshot)=> {
+			snapshot.forEach(doc=> {
+				aCheck = 1;
+				Eid = doc.id;
+				alert("มีข้อมูลอยู่แล้ว ="+ Eid);
+		  });
+		  UpdateData();
+		});
+	}
+*/
+	function CallTimeStamp() {
+	    DateTimeStamp = Math.round(Date.now() / 1000);
+	}
+
 
 
 
 	function UpdateData() {
-	    NewDate();
-	    var DateTimeStamp = Math.round(Date.now() / 1000);
+	    //NewDate();
 		//var sPostMemo = document.getElementById('namebox').value;
-		//alert(PostMemo);
-	    //alert(aCheck);
-
-	      db.add({
-	        LineID : sessionStorage.getItem("LineID"),
-	        //LineName : sessionStorage.getItem("LineName"),
-	        //LinePicture : sessionStorage.getItem("LinePicture"),
-	        //empID : sessionStorage.getItem("EmpID"),
-	        //empBr : sessionStorage.getItem("EmpBR"),
-	        //empName : sessionStorage.getItem("EmpName"),  
-	        //PostPicture : ImgUrl, 
-	        //PostMemo : PostMemo,
-	        //PostDate : dateString,
-	        PostTimeStamp : DateTimeStamp
-	      }); 
-
+		//alert(ImgUrl+"==="+PostMemo);
 /*
 	    if(aCheck==1) {
 	      db.doc(Eid).update({
@@ -239,24 +267,31 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
 	      });
-	    alert("OLD");
+	      alert("OLD");
 	    } else {
-	      db.add({
+*/
+		  //alert("xxx="+ImgUrl);
+	      db.collection("Momday").add({
+	        LineID : sessionStorage.getItem("LineID")
+	      	/*
 	        LineID : sessionStorage.getItem("LineID"),
-	        //LineName : sessionStorage.getItem("LineName"),
-	        //LinePicture : sessionStorage.getItem("LinePicture"),
-	        //empID : sessionStorage.getItem("EmpID"),
-	        //empBr : sessionStorage.getItem("EmpBR"),
-	        //empName : sessionStorage.getItem("EmpName"),  
-	        //PostPicture : ImgUrl, 
-	        //PostMemo : PostMemo,
-	        //PostDate : dateString,
+	        LineName : sessionStorage.getItem("LineName"),
+	        LinePicture : sessionStorage.getItem("LinePicture"),
+	        empID : sessionStorage.getItem("EmpID"),
+	        empBr : sessionStorage.getItem("EmpBR"),
+	        empName : sessionStorage.getItem("EmpName"), 
+	        PostPicture : ImgUrl, 
+	        PostMemo : PostMemo,
+	        PostDate : dateString,
 	        PostTimeStamp : DateTimeStamp
-	      });       
-	    alert("NEW");
+	        */ 
+	      });
+	      //alert("Last Save");
+/*	             
+	      alert("NEW");
 	    }
 */
-	    location.href = "showpicture.html";
+	    location.href = "showpicture.html?ImgUrl="+ImgUrl;
 	}
 
 
@@ -290,9 +325,7 @@ sessionStorage.setItem("EmpBR", sEmpBr);
 
 
 </script>
-
-
-
+<script src="./js/config.js"></script>
 </body>
 
 </html>
