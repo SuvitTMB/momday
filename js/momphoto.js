@@ -51,8 +51,8 @@ function GotoPage() {
 }
 
 
-var str1 = "";
 function ShowPictureID(n,y) {
+  var str1 = "";
   //ii = i+1;
   str1 += '<div>';
   str1 += '<div><img src="'+ n +'" style="max-width:290px;"></div>';
