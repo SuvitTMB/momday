@@ -14,9 +14,9 @@ $(document).ready(function () {
 function DisplaySong(n) {
   document.getElementById('id01').style.display='block';
   if(n==1) {
-    NameSong = '<div class="box-text3">เพลงกล่อมแม่ : ปาน ธนพร</div>';
-    NameVDO = '<div><iframe width="290" height="163" src="https://www.youtube.com/embed/ufaM2-ca9to" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
-    NameText = '<div class="YoutubeText">ลมโชยโรยแผ่ว นานแล้วแม่จ๋า<br>ลูกไม่ได้กลับมา นั่งชิงช้าอันเก่า<br>ชิงช้าหน้าบ้าน วันนี้มันดูเหงา<br>เฟื่องฟ้าลาต้นหล่นกราว อกเราสะท้อน</div>';
+    NameSong = '<div class="box-text3">เพลงอิ่ม อุ่น : ศุ บุญ เลี้ยง</div>';
+    NameVDO = '<div><iframe width="290" height="163" src="https://www.youtube.com/embed/jLSUsGtrBKk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    NameText = '<div class="YoutubeText">อุ่นใดใด โลกนี้มิมีเทียบเทียม<br>อุ่นอกอ้อมแขน อ้อมกอดแม่ตระกอง<br>รักเจ้าจึงปลูก รักลูกแม่ย่อมห่วงใย<br>ไม่อยากจากไปไกล แม้เพียงครึ่งวัน<br><br>ให้กายเราใกล้กัน ให้ดวงตาใกล้ตา<br>ให้ดวงใจเราสองเชื่อมโยงผูกพัน</div>';
   } else if(n==2) {
     NameSong = '<div class="box-text3">เพลงของขวัญวันแม่ : แดน วรเวช</div>';
     NameVDO = '<div><iframe width="290" height="163" src="https://www.youtube.com/embed/gU7ghmJ0iCE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
