@@ -81,11 +81,11 @@
 		      <div style="padding:10px;color:#0056ff;"><center><b>แสดงข้อมูลการเข้าดูเว็บ Cutover</b> | <span class="LoadCSV" onclick="export2csv()">Download CSV File</span></center></div> -->
 		      <div style="text-align: left; font-weight: 700; color:#000000; padding:10px 0;">ข้อมูลการส่งภาพประกวดของคุณ</div>
 		      <table class="table table-bordered" id="tbresult" style="padding:2px;">
-		        <tr>
-		          <th width="5%">No</th>
-		          <th width="65%">ข้อความของภาพ</th>
+		        <tr style="text-align: center; background:#f68b1f; color:#fff;">
+		          <th style="width:9%;padding:8px;text-align: center;">No</th>
+		          <th style="width:75%;padding:8px;text-align: center;">ข้อความของภาพ</th>
 		          <!--<th width="48%">วันที่ส่งประกวด</th>-->
-		          <th width="30%">Status</th>
+		          <th style="width:16%;padding:8px;text-align: center;">Status</th>
 		        </tr>
 		      </table>
 		      	<div class="clr" style="height: 20px;"></div>
@@ -222,8 +222,8 @@ alert(sessionStorage.getItem("EmpName"));
 	  var cell2 = row.insertCell(1);
 	  var cell3 = row.insertCell(2);
 	  //var cell4 = row.insertCell(3);
-	  cell1.innerHTML = i;
-	  cell2.innerHTML = doc.data().PostMemo;
+	  cell1.innerHTML = '<div style="text-align:center">'+i+'</div>';
+	  cell2.innerHTML = '<div class="ClickImg" onclick="ShowPictureID(\'' + doc.data().PostPicture + '\',\'' + doc.data().PostMemo + '\')">'+doc.data().PostMemo+'<br><span style="color:#ccc;font-size:11px;">'+doc.data().PostDate+'</font></div>';
 	  let btn=document.createElement('button');
 	  btn.textContent = "ลบ";
 	  btn.setAttribute('class','btn-t8');
@@ -250,6 +250,27 @@ alert(sessionStorage.getItem("EmpName"));
       CheckDiv();
 	  //location.href = "showpicture.html";
 	}
+
+
+
+	var str1 = "";
+	function ShowPictureID(n,y) {
+	  //ii = i+1;
+	  str1 += '<div>';
+	  str1 += '<div><img src="'+ n +'" style="max-width:290px;"></div>';
+	  str1 += '<div style="padding:8px; font-weight: 600; color:#0056ff;">"'+ y +'"</div>';
+	  str1 += '</div>';
+	  $("#DisplayPhoto").html(str1);
+	  str1 = "";
+	  document.getElementById("id01").style.display = "block";
+	}
+
+
+
+	function CloseAll() {
+	  document.getElementById('id01').style.display='none';
+	}
+
 	      //CheckDiv();
 
 		//alert(sessionStorage.getItem("LineID"));
@@ -371,10 +392,18 @@ db.collection("cities").doc("DC").delete().then(() => {
 	  }
 	  return data;
 	}
-
-
-
 </script>
+
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:24px;width:100%;text-align:center;">
+        <div id="DisplayPhoto"></div>
+        <div class="btn-t2" onclick="CloseAll()">ปิดหน้าต่าง</div>
+      </center>
+    </div>
+  </div>
+</div>
+
 <script src="./js/config.js"></script>
 
 
