@@ -199,8 +199,8 @@ var DateTimeStamp = 0;
 				ImgUrl = url;
 				sessionStorage.setItem("ImgUrl", url);
 				sessionStorage.setItem("PostMemo", PostMemo);
-				alert(sessionStorage.getItem("ImgUrl"));
-				alert(sessionStorage.getItem("PostMemo"));
+				//alert(sessionStorage.getItem("ImgUrl"));
+				//alert(sessionStorage.getItem("PostMemo"));
 
 				firebase.database().ref('Pictures/'+ImgName).set({
 					Name: ImgName,
