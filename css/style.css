@@ -195,7 +195,9 @@
 }
 .ldp1 {
   margin-top:40px;
-  width:100%; height:85vh;
+  width:100%; /*height:85vh;*/
+  max-width: 400px;
+  margin-left:auto; margin-right: auto;
 }
 .ldp_img {
   width:100%; height: 100%;
