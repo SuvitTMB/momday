@@ -59,7 +59,7 @@ function GotoPage() {
 function ShowPictureID(n,y) {
   var str = "";
   str += '<div>';
-  str += '<div><img src="'+ n +'" style="max-width:320px;"></div>';
+  str += '<div><img src="'+ n +'" style="max-width:290px;"></div>';
   str += '<div style="padding:8px; font-weight: 600; color:#0056ff;">"'+ y +'"</div>';
   str += '</div>';
   //alert(n);
