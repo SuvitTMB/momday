@@ -454,6 +454,12 @@ body {
 .box-text0:hover {
   background-color: #0056ff; cursor: pointer; color:#ffffff;
 }
+.box-text00 {
+  width:100%;background-color: #fff;padding:2px; border-radius: 20px;margin-bottom: 4px;color:#000000;
+}
+.box-text00:hover {
+  background-color: #f1f1f1; cursor: pointer; color:#ffffff;
+}
 .box-text2 {
   width:100%; text-align: center; line-height: 1.4em; font-size: 12px; padding-bottom: 5px;
   padding-top:2px;padding-left: 20px; padding-right: 20px; min-height: 30px; 
@@ -497,16 +503,18 @@ body {
 
 }
 .Centered-mom {
+  margin-top:15px;
   position: absolute; padding-bottom: 5px;
-  bottom: 0; font-size: 13px;
-  background-color: rgba(71, 158, 255, 0.5); 
+  bottom: 0; font-size: 13px; 
+  background-color: rgba(71, 158, 255, 0.9); 
   /*background-color: rgba(184, 111, 162, 0.8); */
   /*background-color: rgba(228, 160, 70, 0.6);*/
   /*background-color: rgba(0, 0, 0, 0.7);*/
   /*background-color: rgba(0, 101, 215, 0.3); /* Black background with 0.5 opacity */
   color: #000000; 
-  width: 100%; font-weight: 600;
-  padding: 15px 30px 20px 30px;
+  width: 99%; font-weight: 600;
+  padding: 10px 30px 10px 30px;
+  margin-bottom: 15px;
 }
 .top-right {
   position: absolute;
@@ -524,6 +532,10 @@ body {
   left: 20px;
   width:130px; 
   text-align: left; color:#f68b1f; font-size: 11px; font-weight: 600;
+}
+.boxshow {
+  width:360px;position: relative;text-align: center;margin-left:auto; margin-right:auto; margin-top:15px;
+  border:2px solid #f68b1f; border-radius: 10px; padding:1px;
 }
 .i
 .img_profile {
