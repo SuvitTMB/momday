@@ -38,7 +38,7 @@ function GetAllData(doc) {
   i = i+1;
   str+='<div class="list-element" id="'+i+'">';
   str+='<div class="BoxView" onclick="ShowPictureID(\'' + doc.data().PostPicture + '\',\'' + doc.data().PostMemo + '\')">';
-  str+='<div><img src="'+doc.data().PostPicture+'" style="width: 100%;height:96px;border-radius:5px;"></div>';
+  str+='<div style="height:96px;overflow:hidden;"><img src="'+doc.data().PostPicture+'" style="width: 100%;border-radius:5px;"></div>';
   str+='<div style="width: 100%;padding-top:5px;"><img src="'+ doc.data().LinePicture +'" style="width:35px;height:35px;"> <span>'+ doc.data().LineName +'</span></div>';
   str+='</div>';
   str+='</div>';
