@@ -5,7 +5,7 @@ var sClickView = 0;
 var sGetPicLike = "";
 
 $(document).ready(function () {
-  if(sessionStorage.getItem("EmpID")==null) { location.href = "index.html"; }
+  if(sessionStorage.getItem("Momday")==null) { location.href = "index.html"; }
   sViewID = getParameterByName('gid');
   Connect_DB();
 });

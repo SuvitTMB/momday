@@ -2,7 +2,7 @@ var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }
 
 
 $(document).ready(function () {
-  if(sessionStorage.getItem("EmpID")==null) { location.href = "index.html"; }
+  if(sessionStorage.getItem("Momday")==null) { { location.href = "index.html"; }
   //alert(sessionStorage.getItem("EmpName"));
   Connect_DB();
   $('#imageFile').change(function(evt) {

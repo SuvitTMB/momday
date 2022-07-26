@@ -2,7 +2,8 @@ var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }
 
 
 $(document).ready(function () {
-  if(sessionStorage.getItem("News")==null) {
+  if(sessionStorage.getItem("Momday")==null) {
+  	sessionStorage.setItem("Momday", "Momday");
     document.getElementById('id01').style.display='block';
   }
 

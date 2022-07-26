@@ -3,7 +3,7 @@ var xClickMenu = "";
 
 
 $(document).ready(function () {
-  if(sessionStorage.getItem("EmpID")==null) { location.href = "index.html"; }
+  if(sessionStorage.getItem("Momday")==null) { location.href = "index.html"; }
   Connect_DB();
 });
 
