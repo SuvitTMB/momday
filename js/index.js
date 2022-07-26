@@ -21,7 +21,7 @@ $(document).ready(function () {
   Connect_DB();
   ShowIMG();
 */
-  main()
+  main();
 
 });
 
