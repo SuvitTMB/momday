@@ -26,12 +26,12 @@ $(document).ready(function () {
 });
 
 async function main() {
-  await liff.init({ liffId: "1655966947-rope1zn6" });
+  await liff.init({ liffId: "1655966947-vGw7mRpG" });
   document.getElementById("isLoggedIn").append(liff.isLoggedIn());
   if(liff.isLoggedIn()) {
     getUserProfile();
   } else {
-    liff.login();
+    liff.login(); 
   }
 }
 
