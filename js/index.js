@@ -6,9 +6,25 @@ $(document).ready(function () {
   	sessionStorage.setItem("Momday", "Momday");
     document.getElementById('id01').style.display='block';
   }
-  main();
-});
 
+
+  //sessionStorage.clear();
+/*
+  var str = "";
+  var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
+  var sLineName = "Website";
+  var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
+  sessionStorage.setItem("LineID", sLineID);
+  sessionStorage.setItem("LineName", sLineName);
+  sessionStorage.setItem("LinePicture", sLinePicture);
+  str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"><div id="DisplayVaccine"></div></div>';
+  str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
+  Connect_DB();
+*/
+
+  main();
+
+});
 
 async function main() {
   await liff.init({ liffId: "1655966947-vGw7mRpG" });
@@ -20,6 +36,7 @@ async function main() {
   }
 }
 
+
 async function getUserProfile() {
   var str = "";
   const profile = await liff.getProfile();
@@ -30,7 +47,6 @@ async function getUserProfile() {
   str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
   $("#MyProfile").html(str);  
   Connect_DB();
-  ShowIMG();
 }
 
 
@@ -57,6 +73,7 @@ function Connect_DB() {
   dbCheckProfile = firebase.firestore().collection("CheckProfile");
   dbSongkarn = firebase.firestore().collection("Songkarn");
   sessionStorage.setItem("News", "Songkarn");
+  ShowIMG();
   CheckProfile();
 }
 
