@@ -6,24 +6,9 @@ $(document).ready(function () {
   	sessionStorage.setItem("Momday", "Momday");
     document.getElementById('id01').style.display='block';
   }
-
-/*
-  sessionStorage.clear();
-  var str = "";
-  var sLineID = "Ua6b6bf745bd9bfd01a180de1a05c23b3";
-  var sLineName = "Website";
-  var sLinePicture = "https://profile.line-scdn.net/0hoLlg-mNNMGNRHiaTpMdPNG1bPg4mMDYrKX8qVnIYOgYpe3QwbCp2AXVKaVN_fnMzOC16V3NMagF8";
-  sessionStorage.setItem("LineID", sLineID);
-  sessionStorage.setItem("LineName", sLineName);
-  sessionStorage.setItem("LinePicture", sLinePicture);
-  str += '<div><img src="'+ sessionStorage.getItem("LinePicture") +'" class="add-profile" width="100px"><div id="DisplayVaccine"></div></div>';
-  str += '<div class="NameLine">'+ sessionStorage.getItem("LineName")+'</div>';
-  Connect_DB();
-  ShowIMG();
-*/
   main();
-
 });
+
 
 async function main() {
   await liff.init({ liffId: "1655966947-vGw7mRpG" });
@@ -34,7 +19,6 @@ async function main() {
     liff.login(); 
   }
 }
-
 
 async function getUserProfile() {
   var str = "";
