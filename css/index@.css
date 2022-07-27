@@ -101,7 +101,7 @@ body {
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   color:#0056ff;
-  text-align: left; font-size: 12px;
+  text-align: left; font-size: 11px;
 }
 .form_wrapper input[type=text]:hover, .form_wrapper input[type=email]:hover, .form_wrapper input[type=password]:hover {
   background: #fafafa;
@@ -418,7 +418,7 @@ body {
   }
 }
 .title-head {
-  font-color:#0056ff !important; font-weight: 600; font-size: 15px;
+  font-color:#0056ff !important; font-weight: 600; font-size: 13px;
 }
 
 .profile-member {

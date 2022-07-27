@@ -187,7 +187,7 @@
   }
 
 .form-control {
-  font-size: 13px !important;
+  font-size: 11px !important;
 }
 .ldp {
   width:100%; 
@@ -744,7 +744,7 @@ table.dataTable thead th, table.dataTable thead td {
   padding:3px; font-weight: 600; color:#fff; text-align: center; margin-top:4px; margin-left: 10px;
 }
 .NameLine {
-  color:#f68b1f;font-weight: 600;padding-top:10px;font-size: 14px; letter-spacing:2px;
+  color:#f68b1f;font-weight: 600;padding-top:10px;font-size: 12px; letter-spacing:2px;
 }
 .game-txt {
   font-weight:600;color:#002d63; letter-spacing: 2px;
@@ -780,4 +780,14 @@ table.dataTable thead th, table.dataTable thead td {
   -ms-flex-align: center;
   align-items: center;
 
+}
+
+.icon-left {
+  width:35%;float: left; height: 82px;
+}
+.icon-right {
+  width:65%;float: left;height: 82px;text-align: left; color:#0056ff; font-weight: 600;
+}
+.icon-text {
+  font-size: 11px; font-weight: 400; color:#002d63; line-height: 1.3; 
 }
