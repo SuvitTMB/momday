@@ -53,11 +53,6 @@ function ShowView() {
       EidSongkarn = doc.id;
       sClickView = (doc.data().ClickView+1);
       sClickMemo = doc.data().ClickMemo;
-      //str += '<div style="margin-top:50px;">';
-      //str += '<center><img src="'+doc.data().SendImg+'" style="width:100%; max-width: 500px;"></center>';
-      //str += '<div class="chart-clicklike">'+ sGetPicLike +'</div>';
-      //str += '<div class="clr"></div><div class="chart-clicklike"><div id="DisplayShowLike"></div></div>';
-      //str += '</div>';
       str2 += '<div id="DisplayShowLike"></div>';
       $("#DisplayVote").html(str2);
 
@@ -72,9 +67,7 @@ function ShowView() {
       str1 += '<div class="chart-img"><img src="'+ doc.data().LinePicture +'" onerror="javascript:imgError(this)" class="chart-profilt" title="'+ doc.data().LineName +'"></div>';
       str1 += '<div class="chart-text" style="color:#0056ff;font-size:11px; font-weight: 600;width:72%;">'+doc.data().EmpName+'<div class="chart-date">'+doc.data().SendUnderRH+'</div></div>';
       str1 += '<div style="width:12%;float:left;text-align:center;margin-top:5px;"><div id="ShowClickLike"></div></div></div>';
-      //str1 += '<div style="width:14%;float:left;text-align:center;margin-top:5px;"><div><img src="./img/like.png" class="chart-like" onclick="SaveClickLike()" id="ShowClickLike"></div></div></div>';
 
-      //str1 += '<div class="boxvdo-line1" style="color:#f68b1f;margin-top:5px;">'+doc.data().SendMemo+'</div><div class="clr" style="height:10px;"></div>';
       str1 += '<div class="boxvdo-line2"><div class="boxvdo-icon1" style="font-size:10px;">';
       str1 += '<img src="./img/reading.png" class="boxvdoimg"> <span>'+sClickView+'</span> View</div>';
       str1 += '<div class="boxvdo-icon1" style="font-size:10px;"><img src="./img/like.png" class="boxvdoimg"> <span id="GetClickLike">'+doc.data().ClickLike+'</span> Like</div>';
@@ -155,6 +148,7 @@ function SaveClickLike() {
 
 
 function ShowMemo() {
+  var i = 0;
   var str = "";
   dbSongkarnMemo.where('RefID','==',EidSongkarn)
   .orderBy('WriteTimeStamp','desc')
@@ -164,7 +158,11 @@ function ShowMemo() {
       str +='<div class="chart-img"><img src="'+ doc.data().LinePicture +'" onerror="javascript:imgError(this)" class="chart-profilt" title="'+ doc.data().LineName +'"></div>';
       str +='<div class="chart-text">'+doc.data().WriteMemo+'<div class="chart-date"><b><font color="#f68b1f">'+ doc.data().LineName +'</font></b> | โพส : '+doc.data().WriteDate+'</div></div></div>';
       str +='<div class="clr"></div>';
+      i++;
     });
+    if(i==0) {
+      str = '<div style="border:1px solid #ccc; background-color: #f1f1f1; border-radius: 10px;padding:20px;text-align: center;">ยังไม่มีข้อความจากเพื่อน</div>';
+    }
     $("#DisplayQuestion").html(str);
   });
 }
@@ -174,14 +172,18 @@ function ShowLike() {
   var xCheck = "";
   var xxx = "";
   var str = "";
-  var i = 1;
+  var i = 0;
   dbSongkarnLike.where('LikeID','==',sViewID)
   .orderBy('LikeTimeStamp','desc')
-  //.limit(10)
   .get().then((snapshot)=> {
   snapshot.forEach(doc=> {
       str += '<img src="'+ doc.data().LinePicture +'" onerror="javascript:imgError(this)" class="chart-view" title="'+ doc.data().LineName +'">';
+      i++;
     });
+    if(i==0) {
+      str = '<div style="border:1px solid #ccc; background-color: #f1f1f1; border-radius: 10px;padding:20px;text-align: center;">ยังไม่มีกำลังใจจากเพื่อนของเรา</div>';
+    }
+    //alert(i);
     $("#DisplayShowLike").html(str);
   });
 }

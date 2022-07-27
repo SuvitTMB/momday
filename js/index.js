@@ -3,7 +3,6 @@ var dateString = new Date().toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }
 
 $(document).ready(function () {
   if(sessionStorage.getItem("Momday")==null) {
-  	sessionStorage.setItem("Momday", "Momday");
     document.getElementById('id01').style.display='block';
   }
 
@@ -73,7 +72,7 @@ function Connect_DB() {
   dbCheckProfile = firebase.firestore().collection("CheckProfile");
   dbSongkarn = firebase.firestore().collection("Songkarn");
   sessionStorage.setItem("News", "Songkarn");
-  ShowIMG();
+  //ShowIMG();
   CheckProfile();
 }
 
@@ -86,10 +85,11 @@ function CheckProfile() {
       xCheckProfile = 1;
       sessionStorage.setItem("EmpID", doc.data().empID);
       sessionStorage.setItem("EmpName", doc.data().empName);
+      sessionStorage.setItem("Momday", "Momday");
       ShowIMG();
     });
     if(xCheckProfile==0) {
-      location.href = "register.html";
+      location.href = "registerpage.html";
     }
   });
 }
