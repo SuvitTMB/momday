@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com -->
+  <title>LINE Retail Society</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PW7HPDW');</script>
+  <!-- End Google Tag Manager -->
+  <link href="./img/favicom.ico" rel="icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href='css/ekachon.css' rel="stylesheet" type="text/css">
+  <link href='css/button.css' rel="stylesheet" type="text/css">
+  <link href='css/style.css' rel="stylesheet" type="text/css">
+
+  <link href='css/slider.css' rel="stylesheet" type="text/css">
+  <link href='css/vdo.css' rel="stylesheet" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='css/w3.css' rel="stylesheet" type="text/css">
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.12.0/sdk.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+
+<link rel="stylesheet" href="css/splide.min.css">
+
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="background:#d9e9fa;">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW7HPDW"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+  <div class="navbar1">
+    <center>
+      <div style="max-width:400px;">
+        <div class="iconlink" onClick="window.location='home.html';" style="background-color: #002d63;">
+          <div style="width:28px;"><img src="./img/icon-coffee-01.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">หน้าแรก</div>
+        </div>
+        <div class="iconlink" onClick="window.location='display.html';">
+          <div style="width:28px;"><img src="./img/icon-coffee-02.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ภาพประกวด</div>
+        </div>
+        <div class="iconlink" onClick="window.location='photo.html';">
+          <div style="width:28px;"><img src="./img/icon-coffee-03.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">ส่งภาพ</div>
+        </div>
+        <div class="iconlink" onClick="window.location='viewall.html';">
+          <div style="width:28px;"><img src="./img/icon-coffee-04.png" style="width:22px;"></div>
+          <div style="font-size: 11px;">รายละเอียด</div>
+        </div>
+     </div>
+    </center>
+  </div>
+
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#myPage" onclick="location.href='index.html'" style="font-size: 12px;">LINE Retail Society</a>
+      </div>
+    </div>
+  </nav>
+
+  <section style="margin-top:70px;min-height: 380px;">
+    <center><div class="btn-t5">"เพราะคุณคือคนสำคัญ"</div></center>
+    <div class="menu-header1" style="font-weight: 600;color:#666666;">ด้วยรักและห่วงใยจากใจผู้บริหารถึงพนักงาน ขอส่งกำลังใจ
+      <br>ด้วยเครื่องดื่มแสนอร่อย เพื่อให้พวกเราปฏิบัติหน้าที่<br>อย่างเต็มความสามารถ ด้วยความสุขในทุก ๆ วัน 
+    </div>
+
+    <div style="margin-top:10px;width:100%;overflow:hidden;"> 
+      <div class="splide" style="height:270px;">
+        <div class="splide__track">
+          <ul class="splide__list">
+              <li class="splide__slide"><img src="./img/display-01.jpg" style="width:100%;"></li>
+              <li class="splide__slide"><img src="./img/display-02.jpg" style="width:100%;"></li>
+              <li class="splide__slide"><img src="./img/display-03.jpg" style="width:100%;"></li>
+              <li class="splide__slide"><img src="./img/display-04.jpg" style="width:100%;"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="clr" style="height: 20px;"></div>
+  </section>
+
+
+
+  <section style="margin-top:1px;min-height: 115px;background-color:#2981d8;">
+    <div class="clr" style="height: 30px;"></div>
+    <center>
+      <div class="container" style="max-width: 400px;width:100%;">
+        <div class="btn-t5">กิจกรรม "ดื่ม ฟิน กินยกแกงค์"</div>
+        <div><img src="./img/promote.png" style="width:100%;"></div>
+        <div class="btn-t2" onClick="window.location='photo.html';">ร่วมส่งภาพและขอบคุณผู้บริหาร</div>
+      </div>
+    </center>
+    <div class="clr" style="height: 30px;"></div>
+  </section>
+  <div class="clr"></div>
+
+
+  <section style="margin-top:1px;min-height: 115px;background-color: #c0c4dc;">
+    <div class="clr" style="height: 30px;"></div>
+    <div class="container" style="max-width: 400px;width:100%;">
+      <center>
+        <div class="btn-t5">ภาพประกวดจากเพื่อน</div>
+        <div id="Loading" style="display:block;"><img src="./img/loading.gif" style="margin:40px auto;width:20px;"></div>
+        <div id="DisplayRandom" style="margin-top:20px;"></div>
+      </center>
+    </div>
+  </section>
+  <div class="clr"></div>
+
+  <section style="margin-top:1px;min-height: 115px;">
+    <div class="clr" style="height: 30px;"></div>
+    <center>
+      <div class="container" style="max-width: 400px;width:100%;">
+        <div class="btn-t5">เงื่อนไข และรายละเอียด</div>
+        <div class="img-text" style="color:#666666;">พนักงานสาขาสามารถซื้อเครื่องดื่มที่ชอบได้คนละ 200 บาท<br>
+        ที่ร้านใดก็ได้ และส่งใบเสร็จมาเบิกได้ตลอดเดือนกันยายน 2565</div>
+        <div style="text-align: left;margin-top:20px;width:100%;max-width: 500px;">
+          <div style="width:100%; float: left;font-size: 11px; color:#0056ff;line-height: 1.3;">เพื่อแทนความห่วงใย และเป็นกำลังให้พนักงาน ด้วยเครื่องดื่มแสนอร่อย โดยสาขาสามารถเบิกงบจัดเลี้ยง ในช่วงระยะเวลาและงบประมาณที่กำหนด<br><br><b><u>กติกาประกวดภาพ</u></b><br>ผู้ส่งภาพประกวดเฉพาะพนักงานสังกัด BBD เท่านั้น การส่งภาพจะต้องเป็นภาพของตนเองกับเครื่องดื่ม พร้อมส่งคำขอบคุณผู้บริหาร<br><br><b><u>ระยะเวลาการส่งภาพประกวด</u></b><br>ระหว่างวันที่ 1-30 กันยายน 2565 เท่านั้น<br><br><b><u>รางวัลการประกวดภาพ</u></b><br><ul><li>ผู้ส่งภาพประกวดทุกท่านจะได้รับกระเป๋ากระสอบ ttb ใบใหญ่จุใจ มูลค่า 129 บาท</li><li>ลุ้นรับรางวัลพิศษ บัตร Lotus's มูลค่า 500 บาท 20 รางวัล การตัดสินโดยคณะกรรมการถือเป็นที่สิ้นสุด</li><li>กติกาการแข่งขันสามารถเปลี่ยนแปลงได้ตามความเหมาะสม</li></ul><b><u>ประกาศผลภาพประกวด</u></b><br>ประกาศผลภาพประกวด 10 ตุลาคม 2565<br><br><b><u>หมายเหตุ</u></b><br>รายละเอียดและเงื่อนไขในการเบิกรายการเครื่องดื่ม กรุณาดูจาก Email ที่ได้จัดส่งไปให้แล้ว</div>
+        </div>
+        <div class="clr" style="height: 30px;"></div>
+        <div class="btn-t1" onClick="window.location='display.html';">ดูภาพจากเพื่อที่ส่งประกวด</div>
+      </div>
+    </center>
+  </section>
+  <div class="clr"></div>
+
+
+
+<div id="id01" class="w3-modal w3-animate-opacity">
+  <div class="w3-modal-content w3-card-4">
+    <div class="w3-container" style="min-height:300px;padding:5px;width:100%;text-align:center">
+        <div><img src="./img/intro-cup@.jpg" style="width:100%;border-top-left-radius: 20px; border-top-right-radius: 20px; "></div>
+        <div class="textpromote">เพื่อแทนความห่วงใย และเป็นกำลังใจให้พนักงาน<br>ตลอดเดือนกันยายน 2565 ด้วยเครื่องดื่มแสนอร่อย<br>ที่คุณเลือกได้ 
+          ในงบประมาณ 200 บาท/คน<br>กับแคมเปญ <b>"<font color="#0056ff">ดื่มฟิน กินยกแก๊ง</font>"</b><br><br>
+          <font color="#ff0000">เฉพาะพนักงานในสังกัด BBD เท่านั้น<br>กิจกรรมนี้เฉพาะพนักงานสังกัด BBD เท่านั้น<br>กรุณาอ่านรายละเอียดและเงื่อนไขการเบิกจ่าย</font></div>
+        <div class="btn-t2" onclick="CloseAll()" style="margin:20px auto;">ปิดหน้าต่างนี้</div>
+     </center>
+    </div>
+  </div>
+  <div class="clr" style="height: 70px;"></div>
+</div>
+
+
+<footer class="container-fluid text-center">
+  <div id="isLoggedIn" style="color:#fff;"></div>
+  <a href="#myPage" title="To Top"><span class="glyphicon glyphicon-chevron-up"></span></a>
+  <div style="font-size:12px;font-weight: 600;margin-bottom: 50px;">@<font color="green">LINE</font> <font color="#002d63">Retail</font> <font color="#0056ff">So</font><font color="#f68b1f">ciety</font></div>
+</footer>
+
+<script src="js/splide.min.js"></script>
+
+<script src="./js/home.js"></script>
+<script>
+  document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide( '.splide', {
+  type   : 'loop',
+  perPage: 1,
+    
+  fixedHeight:'240px',
+      cover:true,
+      autoplay:true,
+}  )
+      .mount();
+  } );
+</script>
+
+</body>
+</html>
